@@ -1,0 +1,16 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/category.css' %}">
+
+<div class="form-container">
+    <h2>Edit Category</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="{% url 'category_list' %}">Back to Category List</a>
+</div>
+{% endblock %}

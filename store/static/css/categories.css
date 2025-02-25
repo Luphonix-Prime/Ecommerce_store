@@ -1,0 +1,35 @@
+.category-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+}
+
+.category-list li {
+    margin: 10px 0;
+}
+
+.category-list a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.category-list a:hover {
+    color: #0056b3;
+}

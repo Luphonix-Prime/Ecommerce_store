@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product, Cart, Order
+from .models import Product, Cart, Order, Category
 from .forms import CartForm,ProductForm,EmailChangeForm,EditProfileForm, ChangePasswordForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
@@ -10,13 +10,13 @@ from django import forms
 from django.contrib import messages
 from django.contrib.auth.models import User
 
-def product_list(request):
-    products = Product.objects.all()  # Capitalized 'Product'
-    return render(request, 'store/product_list.html', {'products': products})
+# def product_list(request):
+#     products = Product.objects.all()  # Capitalized 'Product'
+#     return render(request, 'store/product_list.html', {'products': products})
 
-def product_detail(request, product_id):
-    product = get_object_or_404(Product, id=product_id)  # Capitalized 'Product'
-    return render(request, 'store/product_detail.html', {'product': product})
+# def product_detail(request, product_id):
+#     product = get_object_or_404(Product, id=product_id)  # Capitalized 'Product'
+#     return render(request, 'store/product_detail.html', {'product': product})
 
 def add_to_cart(request, product_id):
     if not request.user.is_authenticated:
@@ -36,19 +36,19 @@ def cart_view(request):
     total_price = sum(item.product.price * item.quantity for item in cart_items)
     return render(request, 'store/cart.html', {'cart_items': cart_items, 'total_price': total_price})
 
-@login_required
-def edit_product(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
+# @login_required
+# def edit_product(request, product_id):
+#     product = get_object_or_404(Product, id=product_id)
 
-    if request.method == "POST":
-        form = ProductForm(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
-            return redirect('product_detail', product_id=product.id)
-    else:
-        form = ProductForm(instance=product)
+#     if request.method == "POST":
+#         form = ProductForm(request.POST, request.FILES, instance=product)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('product_detail', product_id=product.id)
+#     else:
+#         form = ProductForm(instance=product)
 
-    return render(request, 'store/edit_product.html', {'form': form, 'product': product})
+#     return render(request, 'store/edit_product.html', {'form': form, 'product': product})
 def checkout(request):
     cart_items = Cart.objects.filter(user=request.user)
     
@@ -182,3 +182,38 @@ def edit_profile(request):
 
     return render(request, 'store/edit_profile.html', {'form': form})
 
+def dashboard(request):
+    total_products = Product.objects.count()
+    total_categories = Category.objects.count()
+
+    context = {
+        'total_products': total_products,
+        'total_categories': total_categories,
+    }
+    return render(request, 'store/dashboard.html', context)  # Ensure correct path
+
+def edit_product(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    categories = Category.objects.all()
+
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('store/product_detail', product_id=product.id)
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, 'store/edit_product.html', {'form': form, 'product': product, 'categories': categories})
+
+def product_list(request):
+    products = Product.objects.select_related('category').all()
+    return render(request, 'store/product_list.html', {'products': products})
+
+def product_detail(request, product_id):
+    product = get_object_or_404(Product.objects.select_related('category'), id=product_id)
+    return render(request, 'store/product_detail.html', {'product': product})
+
+def category_list(request):
+    categories = Category.objects.all()
+    return render(request, 'store/categories.html', {'categories': categories})

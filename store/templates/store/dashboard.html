@@ -1,0 +1,34 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">📊 Admin Dashboard</h2>
+    
+    <div class="row">
+        <!-- Total Products -->
+        <div class="col-md-6">
+            <a href="{% url 'product_list' %}" class="dashboard-card">
+                <div class="card shadow-lg text-center p-4">
+                    <h3>📦 Total Products</h3>
+                    <p class="count">{{ total_products }}</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Total Categories -->
+        <div class="col-md-6">
+            <a href="{% url 'category_list' %}">View Categories</a>
+                <div class="card shadow-lg text-center p-4">
+                    <h3>📂 Total Categories</h3>
+                    <p class="count">{{ total_categories }}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

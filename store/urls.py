@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import profile_view,add_product,change_email,edit_product,edit_profile#, change_password
+from .views import category_list,profile_view, add_product, change_email, edit_product, edit_profile, dashboard
 from .views import (
     product_list, product_detail, add_to_cart, 
     cart_view, checkout, order_success, remove_from_cart, update_cart
@@ -49,5 +49,6 @@ urlpatterns = [
     path('order-success/', order_success, name='order_success'),
     path('product/edit/<int:product_id>/', edit_product, name='edit_product'),
     
-   
+   path('dashboard/', views.dashboard, name='dashboard'),
+   path('categories/', category_list, name='category_list'), 
 ]

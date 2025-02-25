@@ -1,0 +1,19 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/category.css' %}">
+
+<div class="category-container">
+    <h2>Product Categories</h2>
+    <ul class="category-list">
+        {% for category in categories %}
+            <li>
+                <a href="{% url 'product_list' %}?category={{ category.id }}">{{ category.name }}</a>
+            </li>
+        {% empty %}
+            <p>No categories available.</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

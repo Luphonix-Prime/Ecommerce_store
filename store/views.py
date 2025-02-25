@@ -217,3 +217,7 @@ def product_detail(request, product_id):
 def category_list(request):
     categories = Category.objects.all()
     return render(request, 'store/categories.html', {'categories': categories})
+
+def add_category(request):
+    # Your view logic here
+    return render(request, 'store/add_category.html')

@@ -51,4 +51,4 @@ urlpatterns = [
     
    path('dashboard/', views.dashboard, name='dashboard'),
    path('categories/', category_list, name='category_list'), 
-]
+   path('add-category/', views.add_category, name='add_category'),]

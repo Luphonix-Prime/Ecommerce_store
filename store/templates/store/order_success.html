@@ -1,0 +1,10 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/order_success.css' %}">
+
+    <h1>Order Placed!</h1>
+    <p>Your order has been placed successfully.</p>
+    <a href="{% url 'product_list' %}">Continue Shopping</a>
+{% endblock %}

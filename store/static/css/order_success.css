@@ -1,0 +1,37 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-align: center;
+}
+
+/* Order Confirmation Message */
+h1 {
+    color: #10B981; /* Green for success */
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+p {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+/* Continue Shopping Button */
+a {
+    display: inline-block;
+    background-color: #1F2937; /* Dark Blue */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+a:hover {
+    background-color: #374151; /* Darker Blue */
+}

@@ -1,0 +1,132 @@
+/* Product Table */
+.product-table {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+/* Table Rows */
+.product-table tr {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Column 1: Product Image (20%) */
+.product-image-cell {
+    width: 20%;
+    padding: 10px;
+    text-align: left;
+}
+
+.product-image-cell img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+/* Column 2: Product Info (50%) */
+.product-info-cell {
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Product Name */
+.product-info-cell h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.product-info-cell h2 a {
+    text-decoration: none;
+    color: #007185;
+    font-weight: bold;
+}
+
+.product-info-cell h2 a:hover {
+    color: #C45500;
+}
+
+/* Ratings */
+.ratings {
+    font-size: 14px;
+    color: #FFA41C;
+}
+
+/* Price */
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #B12704;
+}
+
+/* Column 3: Add to Cart Button (30%) */
+.product-cart-cell {
+    width: 30%;
+    padding: 10px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+/* Fully Visible Green Buttons */
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(45deg, #28a745, #218838); /* Solid green background */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    margin: 10px auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hover Effect */
+.action-btn:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(46, 139, 87, 0.3);
+}
+
+/* Click (Active) Effect */
+.action-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 6px rgba(46, 139, 87, 0.2);
+}
+
+/* Green Button for Add Product */
+.add-product-btn {
+    display: block;
+    text-align: center;
+    width: 200px;
+    margin-top: 20px;
+}
+
+/* Icon Animation */
+.action-icon {
+    font-size: 18px;
+    animation: pulse 1.2s infinite alternate ease-in-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}

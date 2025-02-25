@@ -1,0 +1,71 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-align: center;
+}
+
+/* Profile Container */
+.profile-container {
+    width: 60%;
+    max-width: 500px;
+    background: white;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Heading */
+h2 {
+    color: #1F2937; /* Dark Blue */
+    margin-bottom: 20px;
+}
+
+/* Profile Info */
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Links */
+a {
+    display: block;
+    background-color: #1F2937; /* Dark Blue */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    margin: 10px auto;
+    width: 200px;
+}
+
+a:hover {
+    background-color: #374151; /* Darker Blue */
+}
+
+/* Logout Button */
+form {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #DC2626; /* Red */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+    width: 200px;
+}
+
+button:hover {
+    background-color: #B91C1C; /* Darker Red */
+}

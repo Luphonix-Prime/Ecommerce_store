@@ -1,0 +1,43 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/product_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Products</h1>
+
+<!-- Product Table -->
+<table class="product-table">
+    {% for product in products %}
+    <tr>
+        <!-- Column 1: Product Image (20%) -->
+        <td class="product-image-cell">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </td>
+
+        <!-- Column 2: Product Info (50%) -->
+        <td class="product-info-cell">
+            <h2><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h2>
+            <div class="ratings">⭐⭐⭐⭐☆ (4.5)</div>
+            <p class="price">${{ product.price }}</p>
+        </td>
+
+        <!-- Column 3: Add to Cart Button (30%) -->
+        <td class="product-cart-cell">
+            <a href="{% url 'add_to_cart' product.id %}" class="action-btn">
+                <span class="action-icon">🛍️</span> Add to Cart
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if user.is_staff %}
+    <a href="{% url 'add_product' %}" class="action-btn add-product-btn">
+        <span class="action-icon">➕</span> Add Product
+    </a>
+{% endif %}
+
+{% endblock %}

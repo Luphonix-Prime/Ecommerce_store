@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>E-Commerce Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            {% if user.is_authenticated %}
+                <div class="profile">
+                    <img src="{% static 'images/profile.png' %}" alt="Profile" class="profile-img">
+                    <a href="{% url 'profile' %}"><span class="username">{{ user.username }}</span></a>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="nav-center">
+            <a href="{% url 'product_list' %}" class="logo-link">
+                <img src="{% static 'images/logo.png' %}" alt="Store Logo" class="logo-img">
+            </a>
+        </div>
+
+        <div class="nav-right">
+            {% if user.is_authenticated %}
+                <a href="{% url 'cart' %}" class="cart-btn">
+                    <span class="cart-icon">🛒</span> Cart
+                </a>
+                <form action="{% url 'logout' %}" method="post" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'signup' %}" class="auth-btn">Signup</a>
+                <a href="{% url 'login' %}" class="auth-btn">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

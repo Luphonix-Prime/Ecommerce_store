@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, Cart, Order, Category
-from .forms import CartForm,ProductForm,EmailChangeForm,EditProfileForm, ChangePasswordForm
+from .forms import CartForm, ProductForm, EmailChangeForm, EditProfileForm, ChangePasswordForm, CategoryForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.forms import UserCreationForm
@@ -115,7 +115,8 @@ def add_product(request):
     else:
         form = ProductForm()
 
-    return render(request, 'store/add_product.html', {'form': form})   
+    return render(request, 'store/add_product.html', {'form': form})
+
  
 @login_required
 def change_email(request):
@@ -182,7 +183,11 @@ def edit_profile(request):
 
     return render(request, 'store/edit_profile.html', {'form': form})
 
+
 def dashboard(request):
+    if not request.user.is_staff and not request.user.is_superuser:
+        return redirect('product_list')  # Redirect regular users to products page
+
     total_products = Product.objects.count()
     total_categories = Category.objects.count()
 
@@ -190,7 +195,7 @@ def dashboard(request):
         'total_products': total_products,
         'total_categories': total_categories,
     }
-    return render(request, 'store/dashboard.html', context)  # Ensure correct path
+    return render(request, 'store/dashboard.html', context)
 
 def edit_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -206,18 +211,61 @@ def edit_product(request, product_id):
 
     return render(request, 'store/edit_product.html', {'form': form, 'product': product, 'categories': categories})
 
+@login_required
+def delete_product(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    product.delete()
+    return redirect('product_list')  # Redirect to product list after deleting
+
 def product_list(request):
     products = Product.objects.select_related('category').all()
-    return render(request, 'store/product_list.html', {'products': products})
+    categories = Category.objects.prefetch_related('products').all()  # Use 'products' instead of 'product_set'
+    return render(request, 'store/product_list.html', {'products': products, 'categories': categories})
+
+
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product.objects.select_related('category'), id=product_id)
     return render(request, 'store/product_detail.html', {'product': product})
 
+
+# List Categories
 def category_list(request):
     categories = Category.objects.all()
     return render(request, 'store/categories.html', {'categories': categories})
 
+# Add Category
 def add_category(request):
-    # Your view logic here
-    return render(request, 'store/add_category.html')
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('categories')  # Make sure this URL name exists
+    else:
+        form = CategoryForm()
+    
+    return render(request, 'store/add_category.html', {'form': form})
+
+
+# Edit Category
+def edit_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            return redirect('category_list')
+    else:
+        form = CategoryForm(instance=category)
+
+    return render(request, 'store/edit_category.html', {'form': form, 'category': category})
+
+
+# Delete Category
+def delete_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    if request.method == 'POST':
+        category.delete()
+        return redirect('categories')
+    return render(request, 'store/delete_category.html', {'category': category})

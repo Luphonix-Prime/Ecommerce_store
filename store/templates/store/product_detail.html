@@ -1,18 +1,36 @@
 {% extends 'store/base.html' %}
 {% load static %}
-
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
 
-    <div class="product-detail-container">
-        <h1>{{ product.name }}</h1>
-        <p class="category">Category: <strong>{{ product.category.name }}</strong></p>
-        <img src="{{ product.image.url }}" width="200">
-        <p>{{ product.description }}</p>
-        <p class="price">${{ product.price }}</p>
-        <a href="{% url 'add_to_cart' product.id %}">Add to Cart</a>
+<div class="product-detail-container">
+    <!-- Product Image -->
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+    <!-- Product Information -->
+    <h1>{{ product.name }}</h1>
+    <p class="category">📂 Category: {{ product.category.name }}</p>
+    <p>{{ product.description }}</p>
+    <p class="price">💰 Price: ${{ product.price }}</p>
+
+    <!-- Edit & Delete Buttons for Admin/Staff -->
+    {% if user.is_authenticated %}
         {% if user.is_staff %}
-            <a href="{% url 'edit_product' product.id %}" class="edit-button">Edit Product</a>
+            <div class="product-detail-buttons">
+                <a href="{% url 'edit_product' product.id %}" class="edit-button">✏️ Edit</a>
+                <a href="{% url 'delete_product' product.id %}" class="delete-button">🗑️ Delete</a>
+            </div>
+        {% else %}
+            <!-- Add to Cart Button for Non-Admin Users -->
+            <div class="product-detail-buttons">
+                <a href="{% url 'add_to_cart' product.id %}" class="add-to-cart-button">🛒 Add to Cart</a>
+            </div>
         {% endif %}
-    </div>
+    {% else %}
+        <!-- Add to Cart Button for Non-Authenticated Users -->
+        <div class="product-detail-buttons">
+            <a href="{% url 'add_to_cart' product.id %}" class="add-to-cart-button">🛒 Add to Cart</a>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

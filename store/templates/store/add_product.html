@@ -8,7 +8,9 @@
         <h2>Add New Product</h2>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
+            
+            {{ form.as_p }}  {# This already includes the category field #}
+
             <button type="submit">Add Product</button>
         </form>
         <a href="{% url 'product_list' %}">Back to Products</a>

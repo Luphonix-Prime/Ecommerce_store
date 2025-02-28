@@ -1,44 +1,113 @@
-{% extends 'store/base.html' %}
-{% load static %}
-
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/product_list.css' %}">
-{% endblock %}
-
+{% extends "store/base.html" %}
+{% load static %} 
 {% block content %}
-<h1>Products</h1>
 
-<!-- Product Table -->
-<table class="product-table">
-    {% for product in products %}
-    <tr>
-        <!-- Column 1: Product Image (20%) -->
-        <td class="product-image-cell">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
-        </td>
+<div class="container mt-4">
+    <h2 class="mb-3">Product List</h2>
+    {%if user.is_authenticated %}
+    <a href="{% url 'add_product' %}" class="action-btn add-product-btn">➕ Add Product</a>
+    {% endif %}
 
-        <!-- Column 2: Product Info (50%) -->
-        <td class="product-info-cell">
-            <h2><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h2>
-            <p class="category">Category: <strong>{{ product.category.name }}</strong></p>
-            <div class="ratings">⭐⭐⭐⭐☆ (4.5)</div>
-            <p class="price">${{ product.price }}</p>
-        </td>
+    <!-- Dropdown for Layout Selection -->
+    <div class="layout-dropdown">
+        <label for="layoutSelect">📌 Select Layout:</label>
+        <select id="layoutSelect" class="action-dropdown" onchange="switchLayout(this.value)">
+            <option value="1">📄 All Products</option>
+            <option value="2">📜 Horizontal Scroll</option>
+            <option value="3">📊 Tables by Category</option>
+        </select>
+    </div>
 
-        <!-- Column 3: Add to Cart Button (30%) -->
-        <td class="product-cart-cell">
-            <a href="{% url 'add_to_cart' product.id %}" class="action-btn">
-                <span class="action-icon">🛍</span> Add to Cart
-            </a>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+    <!-- First Layout: Default Table View -->
+    <div id="layout1" class="layout">
+        <table class="product-table">
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td class="product-image-cell">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </td>
+                    <td class="product-info-cell">
+                        <h2>{{ product.name }}</h2>
+                        <p>{{ product.description }}</p>
+                        <p class="ratings">⭐ 4.5/5</p>
+                        <p class="price">💰 ₹{{ product.price }}</p>
+                        <p>📂 Category: {{ product.category.name }}</p>
+                    </td>
+                    <td class="product-cart-cell">
+                        <a href="{% url 'product_detail' product.id %}" class="action-btn view-product-btn">🔍 View</a>
+                        <a href="{% url 'add_to_cart' product.id %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">No products available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-{% if user.is_staff %}
-    <a href="{% url 'add_product' %}" class="action-btn add-product-btn">
-        <span class="action-icon">➕</span> Add Product
-    </a>
-{% endif %}
+    <!-- Second Layout: Horizontal Scroll -->
+    <div id="layout2" class="layout hidden">
+        {% for category in categories %}
+        <h3>{{ category.name }}</h3>
+        <div class="horizontal-scroll">
+            {% for product in category.products.all %}
+                <div class="product-card">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <h4>{{ product.name }}</h4>
+                    <p>💰 ₹{{ product.price }}</p>
+                    <a href="{% url 'product_detail' product.id %}" class="action-btn view-product-btn">🔍 View</a>
+                    <a href="{% url 'add_to_cart' product.id %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+                </div>
+            {% empty %}
+            <p>No products in this category.</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Third Layout: Tables by Category -->
+    <div id="layout3" class="layout hidden">
+        {% for category in categories %}
+        <h3>{{ category.name }}</h3>
+        <table class="product-table">
+            <tbody>
+                {% for product in category.products.all %}
+                <tr>
+                    <td class="product-image-cell">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </td>
+                    <td class="product-info-cell">
+                        <h2>{{ product.name }}</h2>
+                        <p>{{ product.description }}</p>
+                        <p class="ratings">⭐ 4.5/5</p>
+                        <p class="price">💰 ₹{{ product.price }}</p>
+                    </td>
+                    <td class="product-cart-cell">
+                        <a href="{% url 'product_detail' product.id %}" class="action-btn view-product-btn">🔍 View</a>
+                        <a href="{% url 'add_to_cart' product.id %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">No products in this category.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- JavaScript for Layout Switching -->
+<script>
+    function switchLayout(layoutNumber) {
+        document.querySelectorAll('.layout').forEach(layout => layout.classList.add('hidden'));
+        document.getElementById('layout' + layoutNumber).classList.remove('hidden');
+    }
+</script>
+<link rel="stylesheet" href="{% static 'css/product_list.css' %}">
 
 {% endblock %}

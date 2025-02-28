@@ -1,3 +1,23 @@
+.hidden { display: none; }
+
+.layout-dropdown {
+    margin-bottom: 15px;
+}
+
+.action-dropdown {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    cursor: pointer;
+    background: #fff;
+}
+
+.action-dropdown:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
 /* Product Table */
 .product-table {
     width: 100%;
@@ -11,7 +31,7 @@
     border-bottom: 1px solid #ddd;
 }
 
-/* Column 1: Product Image (20%) */
+/* Column 1: Product Image */
 .product-image-cell {
     width: 20%;
     padding: 10px;
@@ -25,34 +45,12 @@
     object-fit: contain;
 }
 
-/* Column 2: Product Info (50%) */
+/* Column 2: Product Info */
 .product-info-cell {
     width: 50%;
     padding: 10px;
     text-align: center;
     vertical-align: middle;
-}
-
-/* Product Name */
-.product-info-cell h2 {
-    font-size: 18px;
-    margin: 0;
-}
-
-.product-info-cell h2 a {
-    text-decoration: none;
-    color: #007185;
-    font-weight: bold;
-}
-
-.product-info-cell h2 a:hover {
-    color: #C45500;
-}
-
-/* Ratings */
-.ratings {
-    font-size: 14px;
-    color: #FFA41C;
 }
 
 /* Price */
@@ -62,7 +60,7 @@
     color: #B12704;
 }
 
-/* Column 3: Add to Cart Button (30%) */
+/* Column 3: Buttons */
 .product-cart-cell {
     width: 30%;
     padding: 10px;
@@ -70,63 +68,118 @@
     vertical-align: middle;
 }
 
-/* Fully Visible Green Buttons */
+/* General Button Styling */
 .action-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    background: linear-gradient(45deg, #28a745, #218838); /* Solid green background */
-    color: white;
     font-size: 16px;
     font-weight: bold;
-    padding: 12px 20px;
+    padding: 10px 18px;
     border-radius: 8px;
     text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    position: relative;
     border: none;
     cursor: pointer;
-    width: fit-content;
-    margin: 10px auto;
+    transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Hover Effect */
-.action-btn:hover {
+/* View Product Button - Blue */
+.view-product-btn {
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+.view-product-btn:hover {
+    background: linear-gradient(45deg, #0056b3, #004080);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.5);
+}
+
+/* Add to Cart Button - Green */
+.add-to-cart-btn {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+    box-shadow: 0 4px 6px rgba(40, 167, 69, 0.3);
+}
+
+.add-to-cart-btn:hover {
     background: linear-gradient(45deg, #218838, #1e7e34);
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(46, 139, 87, 0.3);
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.5);
 }
 
-/* Click (Active) Effect */
-.action-btn:active {
-    transform: scale(0.98);
-    box-shadow: 0 2px 6px rgba(46, 139, 87, 0.2);
-}
-
-/* Green Button for Add Product */
+/* Add Product Button - Orange */
 .add-product-btn {
-    display: block;
+    display: inline-block;
+    background: linear-gradient(45deg, #ff8c00, #e07b00);
+    color: white;
+    box-shadow: 0 4px 6px rgba(255, 140, 0, 0.3);
+    width: fit-content;
     text-align: center;
-    width: 200px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-/* Icon Animation */
-.action-icon {
-    font-size: 18px;
-    animation: pulse 1.2s infinite alternate ease-in-out;
+.add-product-btn:hover {
+    background: linear-gradient(45deg, #e07b00, #c56a00);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 140, 0, 0.5);
 }
 
-/* Pulse Animation */
-@keyframes pulse {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.1);
-    }
+/* Horizontal Scroll Layout */
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;  /* Space between products */
+    padding: 10px;
+    white-space: nowrap;
+    scrollbar-width: thin; /* Hide scrollbar (Firefox) */
+    -ms-overflow-style: none; /* Hide scrollbar (IE & Edge) */
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none; /* Hide scrollbar (Chrome, Safari) */
+}
+
+/* Product Cards in Horizontal Scroll */
+.product-card {
+    flex: 0 0 250px; /* Fixed width for each product */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Product Table Hover Effect */
+.product-table tr:hover {
+    background-color: #f8f9fa; /* Light gray background */
+    transform: scale(1.02);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Product Cards in Horizontal Scroll - Updated Hover */
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+/* Product Table Image Hover */
+.product-image-cell img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }

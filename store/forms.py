@@ -1,5 +1,5 @@
 from django import forms
-from .models import Cart,Product
+from .models import Cart, Category,Product
 from django.contrib.auth.models import User
 
 class CartForm(forms.ModelForm):
@@ -7,10 +7,7 @@ class CartForm(forms.ModelForm):
         model = Cart
         fields = ['quantity']
 
-class ProductForm(forms.ModelForm):
-    class Meta:
-        model = Product
-        fields = ['name', 'price', 'description', 'image']
+
 
 class EmailChangeForm(forms.ModelForm):
     class Meta:
@@ -52,3 +49,18 @@ class ChangePasswordForm(forms.Form):
             raise forms.ValidationError("New passwords do not match.")
 
         return cleaned_data
+    
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name']
+        
+class ProductForm(forms.ModelForm):
+    category = forms.ModelChoiceField(
+        queryset=Category.objects.all(),
+        empty_label="Select Category",
+        required=True
+    )
+    class Meta:
+        model = Product
+        fields = ['name', 'price', 'description', 'category', 'image']

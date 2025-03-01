@@ -36,11 +36,17 @@ def add_to_cart(request, product_id):
         return redirect('login')  # Redirect anonymous users to login page
 
     product = get_object_or_404(Product, id=product_id)
+    quantity = int(request.POST.get('quantity', 1))  # Get quantity from form, default to 1
+
     cart_item, created = Cart.objects.get_or_create(user=request.user, product=product)
 
     if not created:
-        cart_item.quantity += 1
+        cart_item.quantity += quantity  # Increase quantity if already exists
+    else:
+        cart_item.quantity = quantity
+
     cart_item.save()
+    messages.success(request, f"{quantity}x {product.name} added to cart!")  # Show success message
     return redirect('cart')
 
 @login_required

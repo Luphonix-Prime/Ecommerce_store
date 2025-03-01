@@ -339,3 +339,9 @@ def clear_report(request):
         Order.objects.all().delete()  # ⚠️ Deletes all orders!
         messages.success(request, "All orders have been cleared.")
         return redirect('dashboard')
+    
+def search_results(request):
+    query = request.GET.get('q', '')
+    products = Product.objects.filter(name__icontains=query) if query else []
+    
+    return render(request, 'store/search_results.html', {'query': query, 'products': products})

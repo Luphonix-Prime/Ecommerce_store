@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from .views import (
     CustomLoginView, clear_report, delete_user,  product_list, product_detail, add_to_cart, 
-    cart_view, checkout, order_success, remove_from_cart, toggle_staff, update_cart,
+    cart_view, checkout, order_success, remove_from_cart, search_results, toggle_staff, update_cart,
     category_list, profile_view, add_product, change_email, 
     edit_product, edit_profile, dashboard, delete_product
 )
@@ -53,4 +53,5 @@ urlpatterns = [
     path('update-cart/<int:cart_item_id>/', update_cart, name='update_cart'),
     path('toggle-staff/<int:user_id>/', toggle_staff, name='toggle_staff'),
     path('delete-user/<int:user_id>/', delete_user, name='delete_user'),
+    path('search/', search_results, name='search_results'),
 ]

@@ -21,6 +21,10 @@
             <a href="{% url 'product_list' %}" class="logo-link">
                 <img src="{% static 'images/logo.png' %}" alt="Store Logo" class="logo-img">
             </a>
+            <form method="GET" action="{% url 'search_results' %}" class="search-form">
+                <input type="text" name="q" placeholder="Search products..." required>
+                <button type="submit">🔍</button>
+            </form>
         </div>
 
         <div class="nav-right">

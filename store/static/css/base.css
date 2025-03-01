@@ -58,8 +58,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 1; /* Helps center it properly */
+    flex-grow: 1; /* Ensures proper centering */
+    gap: 15px; /* Spacing between logo and search */
 }
+
 
 .logo-link {
     display: inline-block;
@@ -208,4 +210,52 @@ body {
     background: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+}
+
+/* 🔍 Search Box Styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    padding: 5px;
+    width: 300px; /* Set a proper width */
+    transition: all 0.3s ease-in-out;
+}
+
+.search-form input {
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+.search-form button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+/* Search Button Hover Effect */
+.search-form button:hover {
+    transform: scale(1.1);
+}
+
+/* Search Box Focus Effect */
+.search-form input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .search-form {
+        width: 200px; /* Smaller width for mobile screens */
+    }
 }

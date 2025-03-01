@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = '/product_list/'  # Redirect users to profile page after login
+# LOGIN_REDIRECT_URL = '/product_list/'  # Redirect users to profile page after login
 LOGOUT_REDIRECT_URL = '/'  # Redirect users to homepage after logout
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
@@ -131,6 +131,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-LOGIN_REDIRECT_URL = '/profile/'  # Redirect users to profile page after login
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/product_list/'  # Redirect users to product list after login
 LOGOUT_REDIRECT_URL = '/'  # Redirect users to homepage after logout

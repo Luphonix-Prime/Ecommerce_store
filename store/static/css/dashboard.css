@@ -26,8 +26,9 @@ h2 {
 
 /* Dashboard Grid */
 .dashboard-grid {
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    gap: 20px; /* Space between cards */
     justify-content: center;
 }
 
@@ -56,6 +57,42 @@ h2 {
 
 .card-categories {
     background: linear-gradient(135deg, #36D1DC, #5B86E5); /* Cyan to Royal Blue */
+}
+
+/* Total Users Card */
+.card-users {
+    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+    cursor: pointer;
+}
+
+/* Users Table Container */
+.users-table-container {
+    grid-column: span 3; /* Make table take full width below */
+    width: 100%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 10px; /* Ensures it stays right below */
+}
+
+/* Table Styling */
+.users-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.users-table-container th,
+.users-table-container td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.users-table-container th {
+    background-color: #f4f4f9;
+    font-weight: bold;
 }
 
 /* Hover Effects */
@@ -93,7 +130,14 @@ h3 {
 /* Responsive */
 @media (max-width: 768px) {
     .dashboard-grid {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr; /* Stack items in one column */
+    }
+
+    .card {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .users-table-container {
+        width: 100%;
     }
 }

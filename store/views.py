@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, Cart, Order, Category
 from .forms import CartForm, ProductForm, EmailChangeForm, EditProfileForm, ChangePasswordForm, CategoryForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -9,6 +9,16 @@ from django.contrib.auth import logout,update_session_auth_hash
 from django import forms
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.views import LoginView
+
+class CustomLoginView(LoginView):
+    template_name = 'store/login.html'  # Use your custom login template
+
+    def get_success_url(self):
+        user = self.request.user
+        if user.is_staff or user.is_superuser:
+            return '/dashboard'  # Redirect admins and staff to the dashboard
+        return '/products'  # Redirect normal users to the product list
 
 # def product_list(request):
 #     products = Product.objects.all()  # Capitalized 'Product'
@@ -184,18 +194,6 @@ def edit_profile(request):
     return render(request, 'store/edit_profile.html', {'form': form})
 
 
-def dashboard(request):
-    if not request.user.is_staff and not request.user.is_superuser:
-        return redirect('product_list')  # Redirect regular users to products page
-
-    total_products = Product.objects.count()
-    total_categories = Category.objects.count()
-
-    context = {
-        'total_products': total_products,
-        'total_categories': total_categories,
-    }
-    return render(request, 'store/dashboard.html', context)
 
 def edit_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -269,3 +267,46 @@ def delete_category(request, category_id):
         category.delete()
         return redirect('categories')
     return render(request, 'store/delete_category.html', {'category': category})
+
+# Check if user is admin
+def is_admin(user):
+    return user.is_staff
+
+# Admin Dashboard
+@login_required
+@user_passes_test(is_admin)
+def dashboard(request):
+    if not request.user.is_staff and not request.user.is_superuser:
+        return redirect('product_list')  # Redirect regular users to products page
+
+    total_products = Product.objects.count()
+    total_categories = Category.objects.count()
+    total_users = User.objects.count()
+    users = User.objects.all()
+
+    context = {
+        'users': users,
+        'total_products': total_products,
+        'total_categories': total_categories,
+        'total_users': total_users,
+    }
+    return render(request, 'store/dashboard.html', context)
+
+# Toggle Staff Status
+@login_required
+@user_passes_test(is_admin)
+def toggle_staff(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    if request.method == "POST":
+        user.is_staff = not user.is_staff
+        user.save()
+    return redirect('dashboard')
+
+# Delete User
+@login_required
+@user_passes_test(is_admin)
+def delete_user(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    if request.method == "POST":
+        user.delete()
+    return redirect('dashboard')

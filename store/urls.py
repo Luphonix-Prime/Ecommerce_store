@@ -1,8 +1,8 @@
 from django.urls import path
 from . import views
 from .views import (
-    product_list, product_detail, add_to_cart, 
-    cart_view, checkout, order_success, remove_from_cart, update_cart,
+    CustomLoginView, delete_user,  product_list, product_detail, add_to_cart, 
+    cart_view, checkout, order_success, remove_from_cart, toggle_staff, update_cart,
     category_list, profile_view, add_product, change_email, 
     edit_product, edit_profile, dashboard, delete_product
 )
@@ -12,7 +12,8 @@ from django.contrib.auth.views import (
 )
 
 urlpatterns = [
-    path('', dashboard, name='dashboard'),  # 👈 Landing page is now the dashboard
+    path('', dashboard, name='index'),  # 👈 Landing page is now the dashboard
+     path('dashboard/', dashboard, name='dashboard'),
     path('products/', product_list, name='product_list'),  # 👈 Using imported product_list
     path('product/<int:product_id>/', product_detail, name='product_detail'),
     path('add-to-cart/<int:product_id>/', add_to_cart, name='add_to_cart'),
@@ -25,7 +26,7 @@ urlpatterns = [
     
     path('change-email/', change_email, name='change_email'),
     
-    path('login/', LoginView.as_view(template_name='store/login.html', next_page='dashboard'), name='login'),
+    path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('signup/', views.signup, name='signup'),
     
@@ -49,4 +50,6 @@ urlpatterns = [
     
     path('remove-from-cart/<int:cart_item_id>/', remove_from_cart, name='remove_from_cart'),
     path('update-cart/<int:cart_item_id>/', update_cart, name='update_cart'),
+    path('toggle-staff/<int:user_id>/', toggle_staff, name='toggle_staff'),
+    path('delete-user/<int:user_id>/', delete_user, name='delete_user'),
 ]

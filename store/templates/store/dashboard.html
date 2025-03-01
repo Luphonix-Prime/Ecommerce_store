@@ -4,25 +4,84 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 
-<div class="dashboard-container">
-    <h2>📊 Admin Dashboard</h2>
+<div class="dashboard-grid">
+    <!-- Total Products -->
+    <a href="{% url 'product_list' %}" class="dashboard-card">
+        <div class="card card-products">
+            <h3>📦 Total Products</h3>
+            <p class="count">{{ total_products }}</p>
+        </div>
+    </a>
 
-    <div class="dashboard-grid">
-        <!-- Total Products -->
-        <a href="{% url 'product_list' %}" class="dashboard-card">
-            <div class="card card-products">
-                <h3>📦 Total Products</h3>
-                <p class="count">{{ total_products }}</p>
-            </div>
-        </a>
+    <!-- Total Categories -->
+    <a href="{% url 'categories' %}" class="dashboard-card">
+        <div class="card card-categories">
+            <h3>📂 Total Categories</h3>
+            <p class="count">{{ total_categories }}</p>
+        </div>
+    </a>
 
-        <!-- Total Categories -->
-        <a href="{% url 'categories' %}" class="dashboard-card">
-            <div class="card card-categories">
-                <h3>📂 Total Categories</h3>
-                <p class="count">{{ total_categories }}</p>
-            </div>
-        </a>
+    <!-- Total Users (Click to Toggle Users Table) -->
+    <div class="dashboard-card" id="toggle-users-table">
+        <div class="card card-users">
+            <h3>👥 Total Users</h3>
+            <p class="count">{{ total_users }}</p>
+        </div>
+    </div>
+
+    <!-- Users Table (Initially Hidden) -->
+    <div class="users-table-container" id="users-table-container" style="display: none;">
+        <h3>📋 Users List</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Profile Pic</th>
+                    <th>Username</th>
+                    <th>Admin?</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>
+                        {% if user.profile.image %}
+                            <img src="{{ user.profile.image.url }}" alt="Profile Pic" width="40px">
+                        {% else %}
+                            <img src="{% static 'images/profile.png' %}" alt="Default Pic" width="40px">
+                        {% endif %}
+                    </td>
+                    <td>{{ user.username }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'toggle_staff' user.id %}">
+                            {% csrf_token %}
+                            <input type="checkbox" name="is_staff" onchange="this.form.submit()"
+                                {% if user.is_staff %}checked{% endif %}>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="POST" action="{% url 'delete_user' user.id %}">
+                            {% csrf_token %}
+                            <button type="submit" onclick="return confirm('Are you sure you want to delete this user?')">
+                                🗑️ Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
+
+<!-- jQuery Toggle Script -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#toggle-users-table").click(function () {
+            $("#users-table-container").slideToggle();  // Show/hide table smoothly
+        });
+    });
+</script>
+
 {% endblock %}

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 
 <div class="dashboard-grid">
-    <!-- Total Products -->
+    <!-- Existing Cards (Products, Categories, Users) -->
     <a href="{% url 'product_list' %}" class="dashboard-card">
         <div class="card card-products">
             <h3>📦 Total Products</h3>
@@ -13,7 +13,6 @@
         </div>
     </a>
 
-    <!-- Total Categories -->
     <a href="{% url 'categories' %}" class="dashboard-card">
         <div class="card card-categories">
             <h3>📂 Total Categories</h3>
@@ -21,7 +20,6 @@
         </div>
     </a>
 
-    <!-- Total Users (Click to Toggle Users Table) -->
     <div class="dashboard-card" id="toggle-users-table">
         <div class="card card-users">
             <h3>👥 Total Users</h3>
@@ -29,7 +27,6 @@
         </div>
     </div>
 
-    <!-- Users Table (Initially Hidden) -->
     <div class="users-table-container" id="users-table-container" style="display: none;">
         <h3>📋 Users List</h3>
         <table>
@@ -74,33 +71,28 @@
     </div>
 </div>
 
-<!-- 📊 Live Sales Report Section -->
-<div class="dashboard-report">
-    <h2>📈 Sales Report</h2>
+<!-- Report Section -->
+<div class="report-container">
+    <h3>{{ report_title }}</h3>
+    <p><strong>Total Sales:</strong> ${{ total_sales }}</p>
+    <p><strong>Total Orders:</strong> {{ total_orders }}</p>
 
-    <!-- Selection Form for Monthly/Yearly Report -->
-    <form method="GET" action="">
-        <label for="report-type">Select Report:</label>
-        <select id="report-type" name="report_type" onchange="this.form.submit()">
-            <option value="monthly" {% if report_type == 'monthly' %}selected{% endif %}>Monthly</option>
-            <option value="yearly" {% if report_type == 'yearly' %}selected{% endif %}>Yearly</option>
-        </select>
-    </form>
-
-    <!-- Report Data Display -->
-    <div class="report-data">
-        <h3>{{ report_title }}</h3>
-        <p><strong>Total Sales:</strong> ${{ total_sales }}</p>
-        <p><strong>Orders Processed:</strong> {{ total_orders }}</p>
+    <!-- Print and Clear Buttons -->
+    <div class="report-actions">
+        <button onclick="window.print()" class="print-btn">🖨️ Print Report</button>
+        <form method="POST" action="{% url 'clear_report' %}" onsubmit="return confirm('Are you sure? This will delete all orders!');">
+            {% csrf_token %}
+            <button type="submit" class="clear-btn">❌ Clear Report</button>
+        </form>
     </div>
 </div>
 
-<!-- jQuery Toggle Script -->
+<!-- jQuery Script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
         $("#toggle-users-table").click(function () {
-            $("#users-table-container").slideToggle();  // Show/hide table smoothly
+            $("#users-table-container").slideToggle();
         });
     });
 </script>

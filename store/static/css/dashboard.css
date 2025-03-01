@@ -228,3 +228,46 @@ h3 {
     font-weight: bold;
     color: #555;
 }
+
+.report-container {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.report-actions {
+    margin-top: 15px;
+}
+
+.print-btn, .clear-btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.print-btn {
+    background: #28a745;
+    color: white;
+}
+
+.clear-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.print-btn:hover {
+    background: #218838;
+}
+
+.clear-btn:hover {
+    background: #c82333;
+}
+
+

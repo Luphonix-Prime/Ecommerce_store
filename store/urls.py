@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from .views import (
-    CustomLoginView, delete_user,  product_list, product_detail, add_to_cart, 
+    CustomLoginView, clear_report, delete_user,  product_list, product_detail, add_to_cart, 
     cart_view, checkout, order_success, remove_from_cart, toggle_staff, update_cart,
     category_list, profile_view, add_product, change_email, 
     edit_product, edit_profile, dashboard, delete_product
@@ -14,6 +14,7 @@ from django.contrib.auth.views import (
 urlpatterns = [
     path('', dashboard, name='index'),  # 👈 Landing page is now the dashboard
      path('dashboard/', dashboard, name='dashboard'),
+     path('dashboard/clear-report/', clear_report, name='clear_report'),
     path('products/', product_list, name='product_list'),  # 👈 Using imported product_list
     path('product/<int:product_id>/', product_detail, name='product_detail'),
     path('add-to-cart/<int:product_id>/', add_to_cart, name='add_to_cart'),

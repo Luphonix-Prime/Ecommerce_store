@@ -333,3 +333,9 @@ def delete_user(request, user_id):
     if request.method == "POST":
         user.delete()
     return redirect('dashboard')
+
+def clear_report(request):
+    if request.method == "POST":
+        Order.objects.all().delete()  # ⚠️ Deletes all orders!
+        messages.success(request, "All orders have been cleared.")
+        return redirect('dashboard')

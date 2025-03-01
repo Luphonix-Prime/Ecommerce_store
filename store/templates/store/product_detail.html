@@ -11,7 +11,7 @@
     <h1>{{ product.name }}</h1>
     <p class="category">📂 Category: {{ product.category.name }}</p>
     <p>{{ product.description }}</p>
-    <p class="price">💰 Price: ${{ product.price }}</p>
+    <p class="price">💰 Price: ₹{{ product.price }}</p>
 
     <!-- Edit & Delete Buttons for Admin/Staff -->
     {% if user.is_authenticated %}

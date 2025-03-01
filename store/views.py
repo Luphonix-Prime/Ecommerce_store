@@ -8,9 +8,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout,update_session_auth_hash
 from django import forms
 from django.contrib import messages
+from django.utils.timezone import now
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 
+from datetime import datetime, timedelta
+from django.db.models import Sum, Count
 class CustomLoginView(LoginView):
     template_name = 'store/login.html'  # Use your custom login template
 
@@ -273,22 +276,42 @@ def is_admin(user):
     return user.is_staff
 
 # Admin Dashboard
+
 @login_required
 @user_passes_test(is_admin)
 def dashboard(request):
-    if not request.user.is_staff and not request.user.is_superuser:
-        return redirect('product_list')  # Redirect regular users to products page
-
     total_products = Product.objects.count()
     total_categories = Category.objects.count()
     total_users = User.objects.count()
     users = User.objects.all()
+# Get selected report type
+    report_type = request.GET.get('report_type', 'monthly')
 
+    # Define report title
+    report_title = "📅 Monthly Sales Report" if report_type == "monthly" else "📆 Yearly Sales Report"
+
+     # Get the current date
+    current_date = now()
+    # Get sales data based on selection
+    if report_type == "monthly":
+        start_date = current_date.replace(day=1)  # First day of the current month
+        end_date = current_date  # Today's date (to ensure proper filtering)
+        total_sales = Order.objects.filter(created_at__year=current_date.year, created_at__month=current_date.month).aggregate(total=Sum('total_price'))['total'] or 0
+        total_orders = Order.objects.filter(created_at__year=current_date.year, created_at__month=current_date.month).count()
+    else:  # Yearly Report
+        start_date = current_date.replace(month=1, day=1)  # First day of the year
+        total_sales = Order.objects.filter(created_at__year=current_date.year).aggregate(total=Sum('total_price'))['total'] or 0
+        total_orders = Order.objects.filter(created_at__year=current_date.year).count()
+        
     context = {
         'users': users,
         'total_products': total_products,
         'total_categories': total_categories,
         'total_users': total_users,
+        "report_type": report_type,
+        "report_title": report_title,
+        "total_sales": total_sales,
+        "total_orders": total_orders,
     }
     return render(request, 'store/dashboard.html', context)
 

@@ -34,8 +34,8 @@ h2 {
 
 /* Remove underline from links */
 .dashboard-card {
-    text-decoration: none; /* Removes underline */
-    display: block; /* Makes the whole card clickable */
+    text-decoration: none;
+    display: block;
 }
 
 /* Cards */
@@ -59,7 +59,6 @@ h2 {
     background: linear-gradient(135deg, #36D1DC, #5B86E5); /* Cyan to Royal Blue */
 }
 
-/* Total Users Card */
 .card-users {
     background: linear-gradient(135deg, #FF416C, #FF4B2B);
     cursor: pointer;
@@ -67,14 +66,14 @@ h2 {
 
 /* Users Table Container */
 .users-table-container {
-    grid-column: span 3; /* Make table take full width below */
+    grid-column: span 3;
     width: 100%;
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: 10px; /* Ensures it stays right below */
+    margin-top: 10px;
 }
 
 /* Table Styling */
@@ -127,17 +126,105 @@ h3 {
     }
 }
 
+/* 📊 Live Report Section */
+.dashboard-report {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dashboard-report h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Report Selection */
+.dashboard-report form {
+    margin-bottom: 15px;
+}
+
+.dashboard-report select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.dashboard-report select:hover {
+    border-color: #5B86E5;
+}
+
+/* Report Data */
+.report-data {
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.report-data h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.report-data p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .dashboard-grid {
-        grid-template-columns: 1fr; /* Stack items in one column */
+        grid-template-columns: 1fr;
     }
 
     .card {
-        width: 100%; /* Full width on small screens */
+        width: 100%;
     }
 
     .users-table-container {
         width: 100%;
     }
+
+    .dashboard-report {
+        width: 100%;
+    }
+}
+/* Sales Report Section */
+.dashboard-report {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dashboard-report h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Report Dropdown */
+.dashboard-report select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+/* Report Data */
+.report-data {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
 }

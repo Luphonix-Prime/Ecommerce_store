@@ -74,6 +74,27 @@
     </div>
 </div>
 
+<!-- 📊 Live Sales Report Section -->
+<div class="dashboard-report">
+    <h2>📈 Sales Report</h2>
+
+    <!-- Selection Form for Monthly/Yearly Report -->
+    <form method="GET" action="">
+        <label for="report-type">Select Report:</label>
+        <select id="report-type" name="report_type" onchange="this.form.submit()">
+            <option value="monthly" {% if report_type == 'monthly' %}selected{% endif %}>Monthly</option>
+            <option value="yearly" {% if report_type == 'yearly' %}selected{% endif %}>Yearly</option>
+        </select>
+    </form>
+
+    <!-- Report Data Display -->
+    <div class="report-data">
+        <h3>{{ report_title }}</h3>
+        <p><strong>Total Sales:</strong> ${{ total_sales }}</p>
+        <p><strong>Orders Processed:</strong> {{ total_orders }}</p>
+    </div>
+</div>
+
 <!-- jQuery Toggle Script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

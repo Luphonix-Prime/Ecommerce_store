@@ -1,50 +1,161 @@
-/* General Styling */
-body {
-    background: #f4f4f4;
-    font-family: 'Poppins', sans-serif;
+/* Dashboard Grid Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-/* Card Styling */
+/* Dashboard Cards */
+.dashboard-card {
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .card {
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     text-align: center;
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
+    padding: 20px;
+    border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Card Backgrounds */
+/* Card Colors */
 .card-products {
-    background: linear-gradient(135deg, #7F00FF, #E100FF);
+    background: linear-gradient(135deg, #42e695, #3bb2b8);
 }
 
 .card-categories {
-    background: linear-gradient(135deg, #36D1DC, #5B86E5);
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
 }
 
 .card-users {
-    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
 }
 
-/* Users Table */
-.users-table-container {
-    display: none;
+/* Users & Categories Tables */
+.users-table-container, .category-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-/* Table Styling */
-.table {
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #4a90e2;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Action Buttons */
+.btn {
+    padding: 8px 15px;
     border-radius: 8px;
-    overflow: hidden;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-/* Responsive */
+.btn-add {
+    background: #28a745;
+    color: white;
+}
+
+.btn-add:hover {
+    background: #218838;
+}
+
+.btn-edit {
+    background: #ffc107;
+    color: black;
+}
+
+.btn-edit:hover {
+    background: #e0a800;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+}
+
+/* Report Section */
+.report-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 30px;
+}
+
+.report-container h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.report-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.print-btn {
+    background: #17a2b8;
+    color: white;
+}
+
+.print-btn:hover {
+    background: #138496;
+}
+
+.clear-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.clear-btn:hover {
+    background: #c82333;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .grid {
+    .dashboard-grid {
         grid-template-columns: 1fr;
+    }
+
+    th, td {
+        padding: 8px;
     }
 }

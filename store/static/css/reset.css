@@ -1,0 +1,207 @@
+/********************************************************
+  ========== password_change_done.css ==========
+********************************************************/
+.password-change-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.password-change-container h2 {
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.password-change-container p {
+    font-size: 16px;
+    color: #333;
+}
+
+.password-change-container a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.password-change-container a:hover {
+    background-color: #0056b3;
+}
+
+/********************************************************
+  ========== password_change.css ==========
+********************************************************/
+.password-change-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.password-change-container h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.password-change-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.password-change-container button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.password-change-container button:hover {
+    background-color: #0056b3;
+}
+
+/********************************************************
+  ========== password_reset_complete.css ==========
+********************************************************/
+.password-reset-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.password-reset-container h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.password-reset-container p {
+    font-size: 16px;
+    color: #555;
+}
+
+.password-reset-container a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.password-reset-container a:hover {
+    text-decoration: underline;
+}
+
+/********************************************************
+  ========== password_reset_confirm.css ==========
+********************************************************/
+.password-reset-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.password-reset-container h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.password-reset-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.password-reset-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.password-reset-container button:hover {
+    background-color: #0056b3;
+}
+
+/********************************************************
+  ========== password_reset_done.css ==========
+********************************************************/
+.password-reset-done-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.password-reset-done-container h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.password-reset-done-container p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/********************************************************
+  ========== password_reset.css ==========
+********************************************************/
+.password-reset-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.password-reset-container h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.password-reset-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.password-reset-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.password-reset-container button:hover {
+    background-color: #0056b3;
+}

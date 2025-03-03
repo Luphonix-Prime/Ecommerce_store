@@ -127,7 +127,8 @@ label {
 }
 
 /* Input fields */
-input[type="text"],
+input[type="text"],pip install open-interpreter
+
 input[type="password"],
 input[type="email"] {
     width: 100%;

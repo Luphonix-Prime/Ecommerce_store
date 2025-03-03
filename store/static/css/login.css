@@ -1,9 +1,10 @@
-/* Smooth gradient background */
+/* Smooth Animated Gradient Background */
 body {
+    font-family: 'Poppins', sans-serif;
     @apply flex justify-center items-center min-h-screen bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white;
 }
 
-/* Main container centering */
+/* Centering Main Container */
 .container {
     display: flex;
     justify-content: center;
@@ -13,10 +14,12 @@ body {
 
 /* Glassmorphic Login Box */
 .login-container {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl p-8 text-center relative w-[350px];
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl p-8 text-center relative w-[380px];
+    position: relative;
+    overflow: hidden;
 }
 
-/* Neon Glow Effect */
+/* Neon Glow Background Animation */
 .login-container::before {
     content: '';
     position: absolute;
@@ -25,9 +28,9 @@ body {
     width: 200%;
     height: 200%;
     background: conic-gradient(from 0deg, #ff3d00, #ff9100, #ffea00, #3cff00, #00eaff, #0080ff, #7b00ff, #ff00ea, #ff3d00);
-    filter: blur(80px);
+    filter: blur(100px);
     z-index: -1;
-    opacity: 0.2;
+    opacity: 0.15;
     animation: glow 6s linear infinite;
 }
 
@@ -37,20 +40,33 @@ body {
     100% { transform: rotate(360deg); }
 }
 
+/* Form Border Wrapper */
+.form-wrapper {
+    @apply border border-white/30 p-6 rounded-lg shadow-md relative;
+}
+
+/* Glowing Border on Hover */
+.form-wrapper:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
 /* Heading */
 h2 {
     @apply text-3xl font-bold mb-6 text-white;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* Form */
-form {
-    @apply flex flex-col gap-4;
+/* Labels */
+label {
+    @apply block text-sm font-medium text-blue-300;
+    font-family: 'Raleway', sans-serif;
 }
 
 /* Input Fields */
 input[type="text"],
 input[type="password"] {
     @apply w-full p-3 bg-white/20 text-white rounded-lg border border-white/30 outline-none text-center transition-all duration-300 focus:bg-white/30 focus:ring-2 focus:ring-blue-500;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Neon Glow on Focus */
@@ -58,10 +74,11 @@ input:focus {
     box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
 }
 
-/* Glowing Button */
+/* Button */
 button {
     @apply bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
     box-shadow: 0 4px 15px rgba(0, 0, 255, 0.5);
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Hover Effect */

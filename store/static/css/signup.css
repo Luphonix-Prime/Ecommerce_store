@@ -11,7 +11,7 @@ html, body {
     justify-content: center;
     align-items: center;
 }
-
+  
 /* Outer container that holds both columns */
 .outer-container {
     width: 900px;
@@ -22,7 +22,7 @@ html, body {
     display: flex;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
-
+  
 /********************************************************
   Left Section (Image + Info)
 ********************************************************/
@@ -126,18 +126,17 @@ label {
     margin-bottom: 5px;
 }
 
-/* Input fields */
-input[type="text"],pip install open-interpreter
-
+/* Input fields - Increased size & uniform color */
+input[type="text"],
 input[type="password"],
 input[type="email"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px;           /* Increased padding */
     background: #2a2836;
     border: 1px solid #3a3947;
     border-radius: 6px;
     color: #fff;
-    font-size: 15px;
+    font-size: 17px;         /* Increased font size */
     outline: none;
     transition: border 0.3s;
 }

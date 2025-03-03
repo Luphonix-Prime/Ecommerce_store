@@ -190,19 +190,19 @@ button[type="submit"]:hover {
 /* Links - Updated for better visibility */
 .form-container a {
     text-decoration: none;
-    color: #fff;  /* Set to white for higher contrast */
+    color: #fff !important;  /* Force white color */
     transition: color 0.3s;
     font-weight: 500;
 }
 .form-container a:hover {
-    color: #ddd;  /* Light gray on hover */
+    color: #ddd !important;  /* Light gray on hover */
 }
 
 /* Bottom links spacing - Increased visibility */
 .form-container p {
     margin-top: 10px;
     font-size: 14px;
-    color: #fff; /* Changed from #ccc to white */
+    color: #fff !important; /* Force white */
 }
 
 /* Mobile responsiveness */

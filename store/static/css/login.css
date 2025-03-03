@@ -1,9 +1,10 @@
-/* Smooth gradient background */
+/* Smooth Animated Gradient Background */
 body {
+    font-family: 'Poppins', sans-serif;
     @apply flex justify-center items-center min-h-screen bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white;
 }
 
-/* Main container centering */
+/* Centering Main Container */
 .container {
     display: flex;
     justify-content: center;
@@ -14,9 +15,11 @@ body {
 /* Glassmorphic Login Box */
 .login-container {
     @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl p-8 text-center relative w-[350px];
+    position: relative;
+    overflow: hidden;
 }
 
-/* Neon Glow Effect */
+/* Neon Glow Background Animation */
 .login-container::before {
     content: '';
     position: absolute;
@@ -25,9 +28,9 @@ body {
     width: 200%;
     height: 200%;
     background: conic-gradient(from 0deg, #ff3d00, #ff9100, #ffea00, #3cff00, #00eaff, #0080ff, #7b00ff, #ff00ea, #ff3d00);
-    filter: blur(80px);
+    filter: blur(100px);
     z-index: -1;
-    opacity: 0.2;
+    opacity: 0.15;
     animation: glow 6s linear infinite;
 }
 
@@ -42,7 +45,7 @@ h2 {
     @apply text-3xl font-bold mb-6 text-white;
 }
 
-/* Form */
+/* Form Styling */
 form {
     @apply flex flex-col gap-4;
 }
@@ -51,6 +54,12 @@ form {
 input[type="text"],
 input[type="password"] {
     @apply w-full p-3 bg-white/20 text-white rounded-lg border border-white/30 outline-none text-center transition-all duration-300 focus:bg-white/30 focus:ring-2 focus:ring-blue-500;
+}
+
+/* Placeholder Color */
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Neon Glow on Focus */

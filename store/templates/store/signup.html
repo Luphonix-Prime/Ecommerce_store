@@ -1,44 +1,65 @@
 {% load static %}
-
 {% block content %}
-  <link rel="stylesheet" href="{% static 'css/signup.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
 
-  <div class="signup-container">
-    <h2>Sign Up</h2>
-
-    <form method="post">
-      {% csrf_token %}
-
-      <label for="{{ form.username.id_for_label }}">Username</label>
-      {{ form.username }}
-      
-      <label for="{{ form.email.id_for_label }}">Email</label>
-      {{ form.email }}
-      
-      <label for="{{ form.confirm_email.id_for_label }}">Confirm Email</label>
-      {{ form.confirm_email }}
-
-      <label for="{{ form.password1.id_for_label }}">Password</label>
-      {{ form.password1 }}
-
-      <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
-      {{ form.password2 }}
-
-      {% if form.errors %}
-        <div class="error-box">
-          <ul>
-            {% for field, errors in form.errors.items %}
-              {% for error in errors %}
-                <li>{{ error }}</li>
-              {% endfor %}
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
-
-      <button type="submit">Sign Up</button>
-    </form>
-
-    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+<div class="outer-container">
+  <!-- Left Section: Image + Info -->
+  <div class="left-section">
+    <div class="top-bar">
+      <span class="brand-name">AMU</span>
+      <button class="back-btn">Back to website →</button>
+    </div>
+    <!-- The left section uses a background image via CSS.
+         Optionally, you can also provide a download link image if needed. -->
+    <div class="bottom-info">
+      <p class="tagline">Capturing Moments,<br>Creating Memories</p>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </div>
+
+  <!-- Right Section: Sign Up Form -->
+  <div class="right-section">
+    <div class="form-container">
+      <h2>Sign Up</h2>
+
+      <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.username.id_for_label }}">Username</label>
+        {{ form.username }}
+
+        <label for="{{ form.email.id_for_label }}">Email</label>
+        {{ form.email }}
+
+        <label for="{{ form.confirm_email.id_for_label }}">Confirm Email</label>
+        {{ form.confirm_email }}
+
+        <label for="{{ form.password1.id_for_label }}">Password</label>
+        {{ form.password1 }}
+
+        <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+        {{ form.password2 }}
+
+        {% if form.errors %}
+          <div class="error-box">
+            <ul>
+              {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+  </div>
+</div>
 {% endblock %}

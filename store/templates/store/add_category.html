@@ -1,7 +1,12 @@
 {% extends 'store/base.html' %}
+{% load static %}  <!-- Load static files -->
+
+
 
 {% block content %}
-    <div class="container mt-5">
+<link rel="stylesheet" type="text/css" href="{% static 'css/add_category.css' %}">
+
+    <div class="add-category-container">
         <h2 class="text-center">Add Category</h2>
         <div class="card p-4">
             <form method="post">

@@ -1,7 +1,4 @@
-/* register.css
-   Contains all custom styles for the registration page
-*/
-
+/* register.css */
 /* Glass Container */
 .glass-container {
     @apply flex w-full max-w-4xl bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl overflow-hidden;
@@ -18,7 +15,16 @@
     @apply w-1/2 flex flex-col justify-center;
   }
   
-  /* Input Field Styles */
+  /* Form Wrapper: Outer Border Styling Only */
+  .form-wrapper {
+    @apply border border-white/40 p-4 rounded-md;
+    transition: box-shadow 0.3s ease;
+  }
+  .form-wrapper:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Input Field Styles (Unchanged from Old Code) */
   .input-field {
     @apply w-full p-3 bg-white/10 text-white rounded-md border border-white/30 outline-none transition-all duration-300 focus:bg-white/20;
   }

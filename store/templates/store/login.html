@@ -44,40 +44,42 @@
         <a href="#" class="text-purple-400 text-decoration-none">Log in</a>
       </p>
 
-      <form class="mt-4" method="post">
-        {% csrf_token %}
-        <div class="row g-3">
-          <div class="col-md-6">
-            <input type="text" placeholder="First name" class="input-field form-control" name="first_name" required />
+      <!-- Form Wrapper: Only Outer Border Changed -->
+      <div class="form-wrapper mt-4 p-4">
+        <form method="post">
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-md-6">
+              <input type="text" placeholder="First name" class="input-field form-control" name="first_name" required>
+            </div>
+            <div class="col-md-6">
+              <input type="text" placeholder="Last name" class="input-field form-control" name="last_name" required>
+            </div>
           </div>
-          <div class="col-md-6">
-            <input type="text" placeholder="Last name" class="input-field form-control" name="last_name" required />
+          <input type="email" placeholder="Email" class="input-field form-control mt-3" name="email" required>
+          <div class="position-relative mt-3">
+            <input type="password" placeholder="Enter your password" class="input-field form-control pe-5" name="password" required>
+            <span class="position-absolute top-50 end-0 translate-middle-y me-3 text-gray-300 cursor-pointer">👁</span>
           </div>
-        </div>
-        <input type="email" placeholder="Email" class="input-field form-control mt-3" name="email" required />
-        <div class="position-relative mt-3">
-          <input type="password" placeholder="Enter your password" class="input-field form-control pe-5" name="password" required />
-          <span class="position-absolute top-50 end-0 translate-middle-y me-3 text-gray-300 cursor-pointer">👁</span>
-        </div>
 
-        <div class="form-check mt-3">
-          <input type="checkbox" class="form-check-input" name="terms" id="terms" required />
-          <label class="form-check-label text-sm" for="terms">
-            I agree to the
-            <a href="#" class="text-purple-400 text-decoration-none">Terms & Conditions</a>
-          </label>
-        </div>
+          <div class="form-check mt-3">
+            <input type="checkbox" class="form-check-input" name="terms" id="terms" required>
+            <label class="form-check-label text-sm" for="terms">
+              I agree to the <a href="#" class="text-purple-400 text-decoration-none">Terms & Conditions</a>
+            </label>
+          </div>
 
-        <button type="submit" class="btn-primary mt-3">Create account</button>
-      </form>
+          <button type="submit" class="btn-primary mt-3">Create account</button>
+        </form>
+      </div>
 
       <p class="text-center text-sm mt-4">Or register with</p>
       <div class="d-flex gap-3 mt-3">
         <button class="social-btn">
-          <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google" /> Google
+          <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google"> Google
         </button>
         <button class="social-btn">
-          <img src="https://img.icons8.com/ios-filled/24/ffffff/mac-os.png" alt="Apple" /> Apple
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/mac-os.png" alt="Apple"> Apple
         </button>
       </div>
     </div>

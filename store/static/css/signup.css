@@ -92,13 +92,12 @@ html, body {
 
 /* Reduced image size slightly */
 .download-image {
-    width: 400px;
-    height: 300px;
-    object-fit: cover;
-    margin: 20px 0;
+    width: 430px;   /* Fixed width */
+    height: 355px;  /* Fixed height */
+    object-fit: cover; /* Ensures image covers the area */
+    margin: 60px 0;
     border-radius: 12px;
 }
-  
 /********************************************************
   Right Section (Sign Up Form)
 ********************************************************/

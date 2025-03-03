@@ -1,109 +1,144 @@
-/* Dashboard Layout */
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f6f9;
 }
 
-.dashboard-card {
-    text-decoration: none;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    text-align: center;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-/* Different card colors */
-.card-products { background-color: #28a745; color: white; }
-.card-categories { background-color: #ff9800; color: white; }
-.card-users { background-color: #007bff; color: white; }
-
-.count {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/* Sidebar Styles */
+/* Sidebar */
 .sidebar {
     width: 250px;
+    background: #2c3e50;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
-    background: #343a40;
-    color: white;
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
 }
 
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.menu li {
+    list-style: none;
+    padding: 10px 15px;
+    margin: 5px 0;
+    background: #34495e;
     border-radius: 5px;
-    transition: 0.3s;
+    cursor: pointer;
 }
 
-.sidebar a:hover {
-    background: #495057;
+.menu li:hover {
+    background: #1abc9c;
 }
 
-/* Table Styling */
-.users-table-container, .category-container {
-    background: white;
+.menu li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+/* Dashboard Main */
+.dashboard-main {
+    flex: 1;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-stats {
+    display: flex;
+    gap: 15px;
     margin-top: 20px;
 }
 
+.stat-box {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.red { background: #e74c3c; }
+.blue { background: #3498db; }
+.orange { background: #f39c12; }
+.green { background: #2ecc71; }
+
+/* Table */
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-table th, table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-table th {
-    background: #007bff;
+thead {
+    background: #34495e;
     color: white;
 }
 
+td, th {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+}
+
+.twitter { background: #1da1f2; }
+.facebook { background: #3b5998; }
+.amazon { background: #ff9900; }
+.microsoft { background: #0078d7; }
+
+/* Progress Bar */
+.progress-bar-container {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.progress-bar {
+    height: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
 /* Buttons */
-.btn {
-    padding: 8px 12px;
+button {
+    background: #1abc9c;
+    color: white;
     border: none;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-.btn-add { background: #28a745; color: white; }
-.btn-edit { background: #ffc107; color: black; }
-.btn-delete { background: #dc3545; color: white; }
-
-.btn:hover {
-    opacity: 0.8;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .dashboard-grid {
-        grid-template-columns: 1fr;
-    }
+button:hover {
+    background: #16a085;
 }

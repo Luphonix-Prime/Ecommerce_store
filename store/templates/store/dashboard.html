@@ -7,21 +7,21 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 
-<div class="container mx-auto mt-8 px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="{% url 'product_list' %}" class="dashboard-card">
-            <div class="card shadow-lg p-5 rounded-lg card-products">
-                <h3 class="text-xl font-semibold">📦 Total Products</h3>
-                <p class="count text-4xl mt-3 font-bold">{{ total_products }}</p>
-            </div>
-        </a>
+<div class="dashboard-grid">
+    <!-- Existing Cards (Products, Categories, Users) -->
+    <a href="{% url 'product_list' %}" class="dashboard-card">
+        <div class="card card-products">
+            <h3>📦 Total Products</h3>
+            <p class="count">{{ total_products }}</p>
+        </div>
+    </a>
 
-        <a href="{% url 'categories' %}" class="dashboard-card">
-            <div class="card shadow-lg p-5 rounded-lg card-categories">
-                <h3 class="text-xl font-semibold">📂 Total Categories</h3>
-                <p class="count text-4xl mt-3 font-bold">{{ total_categories }}</p>
-            </div>
-        </a>
+    <a href="{% url 'categories' %}" class="dashboard-card">
+        <div class="card card-categories">
+            <h3>📂 Total Categories</h3>
+            <p class="count">{{ total_categories }}</p>
+        </div>
+    </a>
 
         <div class="dashboard-card cursor-pointer" id="toggle-users-table">
             <div class="card shadow-lg p-5 rounded-lg card-users">
@@ -31,11 +31,10 @@
         </div>
     </div>
 
-    <!-- Users Table Section -->
-    <div class="users-table-container mt-5 p-5 shadow-lg rounded-lg bg-white hidden" id="users-table-container">
-        <h3 class="text-lg font-semibold mb-4">📋 Users List</h3>
-        <table class="table table-striped table-hover">
-            <thead class="table-dark">
+    <div class="users-table-container" id="users-table-container" style="display: none;">
+        <h3>📋 Users List</h3>
+        <table>
+            <thead>
                 <tr>
                     <th>Profile Pic</th>
                     <th>Username</th>
@@ -67,6 +66,7 @@
             </tbody>
         </table>
     </div>
+</div>
 
     <!-- Sales Report Section -->
     <div class="report-container mt-6 p-6 shadow-lg rounded-lg bg-white">
@@ -74,13 +74,13 @@
         <p class="mt-2 text-gray-600"><strong>Total Sales:</strong> ${{ total_sales }}</p>
         <p class="text-gray-600"><strong>Total Orders:</strong> {{ total_orders }}</p>
 
-        <div class="mt-4 flex gap-4">
-            <button onclick="window.print()" class="btn btn-success">🖨️ Print Report</button>
-            <form method="POST" action="{% url 'clear_report' %}" onsubmit="return confirm('Are you sure? This will delete all orders!');">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger">❌ Clear Report</button>
-            </form>
-        </div>
+    <!-- Print and Clear Buttons -->
+    <div class="report-actions">
+        <button onclick="window.print()" class="print-btn">🖨️ Print Report</button>
+        <form method="POST" action="{% url 'clear_report' %}" onsubmit="return confirm('Are you sure? This will delete all orders!');">
+            {% csrf_token %}
+            <button type="submit" class="clear-btn">❌ Clear Report</button>
+        </form>
     </div>
 </div>
 
@@ -90,6 +90,10 @@
     $(document).ready(function () {
         $("#toggle-users-table").click(function () {
             $("#users-table-container").slideToggle();
+        });
+
+        $("#toggle-categories-table").click(function () {
+            $("#categories-table-container").slideToggle();
         });
     });
 </script>

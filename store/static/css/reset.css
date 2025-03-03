@@ -1,24 +1,53 @@
+/* 
+  Reset some defaults 
+  (optional but helps keep consistency)
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* or your preferred font */
+}
+
+/*
+  Body styling: 
+  Use a dark background (like your sign-up page).
+  Adjust the color as you prefer (#13122d, #1f1f2e, etc.).
+*/
+body {
+    background-color: #13122d;
+    color: #ffffff;
+}
+
 /********************************************************
-  ========== password_change_done ========== 
+  ========== Password Change Done (.password-change-container) ==========
 ********************************************************/
 .password-change-container {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
+
+    /* Dark card background */
     background-color: #1f1f2e;
     border-radius: 10px;
+
+    /* Subtle shadow */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
     text-align: center;
     color: #ffffff;
 }
 
 .password-change-container h2 {
-    color: #5a36ff;
+    color: #5a36ff; 
     margin-bottom: 15px;
+    font-size: 24px;
 }
 
 .password-change-container p {
     font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .password-change-container a {
@@ -29,6 +58,7 @@
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .password-change-container a:hover {
@@ -36,27 +66,13 @@
 }
 
 /********************************************************
-  ========== password_change ========== 
+  ========== Password Change (.password-change-container) ==========
 ********************************************************/
-.password-change-container {
-    /* Notice this overrides the background/text from above 
-       if both files share the same .password-change-container 
-       class in your HTML */
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #1f1f2e;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    color: #ffffff;
-}
-
-.password-change-container h2 {
-    color: #ffffff;
-    margin-bottom: 15px;
-}
-
+/* 
+  Same class name as "done" version, but used by 
+  password_change.html. We can unify them by 
+  reusing the same dark card styling.
+*/
 .password-change-container form {
     display: flex;
     flex-direction: column;
@@ -65,10 +81,10 @@
 
 .password-change-container form input[type="password"] {
     padding: 10px;
-    border: none;
+    border: 1px solid #2c2c4a;
     border-radius: 5px;
     background-color: #2c2c4a;
-    color: #fff;
+    color: #ffffff;
     outline: none;
 }
 
@@ -80,6 +96,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 .password-change-container button:hover {
@@ -87,12 +104,13 @@
 }
 
 /********************************************************
-  ========== password_reset_complete ========== 
+  ========== Password Reset Complete/Confirm (.password-reset-container) ==========
 ********************************************************/
 .password-reset-container {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
+
     background-color: #1f1f2e;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -101,70 +119,59 @@
 }
 
 .password-reset-container h2 {
-    color: #5a36ff;
+    color: #ffffff;
     margin-bottom: 15px;
+    font-size: 24px;
 }
 
 .password-reset-container p {
     font-size: 16px;
     color: #ffffff;
+    margin-bottom: 10px;
 }
 
+/* Links inside .password-reset-container */
 .password-reset-container a {
     color: #5a36ff;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .password-reset-container a:hover {
     text-decoration: underline;
+    color: #4a26ef;
 }
 
-/********************************************************
-  ========== password_reset_confirm ========== 
-********************************************************/
-.password-reset-container {
-    /* Again, same class name as above, so these styles 
-       override the previous .password-reset-container 
-       if used in the same HTML element. */
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #1f1f2e;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    color: #ffffff;
-}
-
-.password-reset-container h2 {
-    color: #ffffff;
-    margin-bottom: 15px;
-}
-
+/* Forms in .password-reset-container (Reset Confirm, etc.) */
 .password-reset-container form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.password-reset-container form input[type="password"] {
+/* Input fields (for new password, email, etc.) */
+.password-reset-container input[type="email"],
+.password-reset-container input[type="password"],
+.password-reset-container input[type="text"] {
     padding: 10px;
-    border: none;
+    border: 1px solid #2c2c4a;
     border-radius: 5px;
     background-color: #2c2c4a;
-    color: #fff;
+    color: #ffffff;
     outline: none;
 }
 
+/* Buttons in .password-reset-container */
 .password-reset-container button {
     background-color: #5a36ff;
-    color: #fff;
+    color: #ffffff;
     border: none;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 .password-reset-container button:hover {
@@ -172,12 +179,13 @@
 }
 
 /********************************************************
-  ========== password_reset_done ========== 
+  ========== Password Reset Done (.password-reset-done-container) ==========
 ********************************************************/
 .password-reset-done-container {
     max-width: 500px;
     margin: 50px auto;
     padding: 20px;
+
     background-color: #1f1f2e;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -188,62 +196,12 @@
 .password-reset-done-container h2 {
     color: #ffffff;
     margin-bottom: 15px;
+    font-size: 24px;
 }
 
 .password-reset-done-container p {
     font-size: 16px;
     color: #ffffff;
     line-height: 1.5;
+    margin-bottom: 10px;
 }
-
-/********************************************************
-  ========== password_reset ========== 
-********************************************************/
-.password-reset-container {
-    /* Yet again, same class name—this will override 
-       earlier password-reset-container rules if 
-       used on the same page. */
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #1f1f2e;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    color: #ffffff;
-}
-
-.password-reset-container h2 {
-    color: #ffffff;
-    margin-bottom: 15px;
-}
-
-.password-reset-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.password-reset-container form input[type="email"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #2c2c4a;
-    color: #fff;
-    outline: none;
-}
-
-.password-reset-container button {
-    background-color: #5a36ff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.password-reset-container button:hover {
-    background-color: #4a26ef;
-}
-

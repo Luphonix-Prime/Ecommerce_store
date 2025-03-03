@@ -88,6 +88,15 @@ html, body {
     background: #fff; /* Active dot */
 }
 
+/* Styling for the download image */
+.download-image {
+    width: 430px;   /* Fixed width */
+    height: 355px;  /* Fixed height */
+    object-fit: cover; /* Ensures the image fills the area */
+    margin: 20px 0;
+    border-radius: 12px;
+}
+  
 /********************************************************
   Right Section (Sign Up Form)
 ********************************************************/
@@ -178,22 +187,22 @@ button[type="submit"]:hover {
     text-align: left;
 }
 
-/* Links */
+/* Links - Updated for better visibility */
 .form-container a {
     text-decoration: none;
-    color: #a599ff;
+    color: #fff;  /* Set to white for higher contrast */
     transition: color 0.3s;
     font-weight: 500;
 }
 .form-container a:hover {
-    color: #7b72ff;
+    color: #ddd;  /* Light gray on hover */
 }
 
-/* Bottom links spacing */
+/* Bottom links spacing - Increased visibility */
 .form-container p {
     margin-top: 10px;
     font-size: 14px;
-    color: #ccc;
+    color: #fff; /* Changed from #ccc to white */
 }
 
 /* Mobile responsiveness */

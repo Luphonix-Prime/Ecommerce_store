@@ -2,9 +2,8 @@ from django.urls import path
 from . import views
 from .views import (
     CustomLoginView, clear_report, delete_user,  product_list, product_detail, add_to_cart, 
-    cart_view, checkout, order_success, remove_from_cart, search_results, toggle_staff, update_cart,
-    category_list, profile_view, add_product, change_email, 
-    edit_product, edit_profile, dashboard, delete_product
+    cart_view, checkout, order_success, remove_from_cart, reset_order_sequence, search_results, toggle_staff, update_cart,
+    category_list, profile_view, add_product, change_email, report_page, clear_report, edit_product, edit_profile, dashboard, delete_product
 )
 from django.contrib.auth.views import (
     LoginView, LogoutView, PasswordChangeView, PasswordChangeDoneView,
@@ -54,4 +53,8 @@ urlpatterns = [
     path('toggle-staff/<int:user_id>/', toggle_staff, name='toggle_staff'),
     path('delete-user/<int:user_id>/', delete_user, name='delete_user'),
     path('search/', search_results, name='search_results'),
+    
+    path('report/', report_page, name='report_page'),
+    path('clear_report/', clear_report, name='clear_report'),
+    path('reset_order_sequence/', reset_order_sequence, name='reset_order_sequence'),
 ]

@@ -9,24 +9,13 @@
         <h2 class="logo">Logo</h2>
         <ul class="menu">
             <li><a href="{% url 'dashboard' %}">📊 Dashboard</a></li>
-            <li id="toggle-products-table"><a href="#">📦 Products</a></li>
-            <li id="toggle-categories-table"><a href="#">📂 Categories</a></li>
+            <li id="toggle-products-table">📦 Products</li>
+            <li id="toggle-categories-table">📂 Categories</a></li>
             <li id="toggle-users-table"><a href="#">👥 Users</a></li>
-            <li><a href="#">📈 Reports</a></li>
-            <section>
-                <!-- Report Section -->
-                <div class="report-container">
-                    
-    
-                    <div class="report-actions">
-                        <button onclick="window.print()" class="print-btn">🖨️ Print Report</button>
-                        <form method="POST" action="{% url 'clear_report' %}" onsubmit="return confirm('Are you sure? This will delete all orders!');">
-                            {% csrf_token %}
-                            <button type="submit" class="clear-btn">❌ Clear Report</button>
-                        </form>
-                    </div>
-                </div>
-            </section>
+            
+            <!-- Reports Section -->
+            <li id="toggle-reports-menu"><a href="{% url 'report_page' %}">📈 Reports</a></li>
+            
         </ul>
     </aside>
 
@@ -149,7 +138,6 @@
                             <th>Image</th>
                             <th>Name</th>
                             <th>Price</th>
-                            {% comment %} <th>Stock</th> {% endcomment %}
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -165,7 +153,6 @@
                                 </td>
                                 <td>{{ product.name }}</td>
                                 <td>${{ product.price }}</td>
-                                {% comment %} <td>{{ product.stock }}</td> {% endcomment %}
                                 <td class="action-buttons">
                                     <a href="{% url 'edit_product' product.id %}" class="btn btn-edit">✏️ Edit</a>
                                     <form method="post" action="{% url 'delete_product' product.id %}" class="delete-form">
@@ -176,7 +163,7 @@
                             </tr>
                         {% empty %}
                             <tr>
-                                <td colspan="5" class="no-products">No products available.</td>
+                                <td colspan="4" class="no-products">No products available.</td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -184,16 +171,6 @@
             </div>
         </div>
 
-        
-
-        <section class="progress">
-            <h3>📊 Progress Among Projects</h3>
-            <div class="progress-bar-container">
-                <div class="progress-bar blue" style="width: 45%">45%</div>
-                <div class="progress-bar green" style="width: 55%">55%</div>
-                <div class="progress-bar orange" style="width: 65%">65%</div>
-            </div>
-        </section>
     </main>
 </div>
 
@@ -212,6 +189,8 @@
         $("#toggle-products-table").click(function () {
             $("#products-table-container").slideToggle();
         });
+
+        
     });
 </script>
 {% endblock %}

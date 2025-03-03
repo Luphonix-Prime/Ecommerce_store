@@ -142,3 +142,45 @@ button {
 button:hover {
     background: #16a085;
 }
+
+
+/* Add Category Button */
+.btn-add {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: background 0.3s ease;
+}
+
+.btn-add:hover {
+    background: #218838;
+}
+
+
+.report-summary {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.report-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.report-table th, .report-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}

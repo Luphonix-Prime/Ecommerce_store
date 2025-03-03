@@ -11,6 +11,8 @@ from django.contrib import messages
 from django.utils.timezone import now
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
+from django.db import connection  # To reset the database sequence
+
 
 from datetime import datetime, timedelta
 from django.db.models import Sum, Count
@@ -286,6 +288,9 @@ def is_admin(user):
 @login_required
 @user_passes_test(is_admin)
 def dashboard(request):
+    products = Product.objects.all()  # Fetch products from DB
+    categories = Category.objects.all() 
+
     total_products = Product.objects.count()
     total_categories = Category.objects.count()
     total_users = User.objects.count()
@@ -318,6 +323,8 @@ def dashboard(request):
         "report_title": report_title,
         "total_sales": total_sales,
         "total_orders": total_orders,
+        'products': products,
+        'categories': categories
     }
     return render(request, 'store/dashboard.html', context)
 
@@ -351,3 +358,39 @@ def search_results(request):
     products = Product.objects.filter(name__icontains=query) if query else []
     
     return render(request, 'store/search_results.html', {'query': query, 'products': products})
+
+def report_page(request):
+    orders = Order.objects.all()  # Fetch all orders
+    total_revenue = sum(order.total_price for order in orders)  # Calculate revenue
+    total_orders = orders.count()  # Count total orders
+
+    context = {
+        'orders': orders,
+        'total_revenue': total_revenue,
+        'total_orders': total_orders,
+    }
+    return render(request, 'store/report.html', context)
+
+
+def clear_report(request):
+    if request.method == "POST":
+        Order.objects.all().delete()  # Delete all orders
+        messages.success(request, "All reports cleared successfully.")
+        return redirect('reset_order_sequence')  # Redirect to reset page
+
+def reset_order_sequence(request):
+    if request.method == "POST":
+        choice = request.POST.get("sequence_choice")
+
+        with connection.cursor() as cursor:
+            if choice == "reset_to_1":
+                cursor.execute("DELETE FROM sqlite_sequence WHERE name='store_order'")  # Reset ID to 1
+            elif choice == "continue_from_last":
+                last_order = Order.objects.last()  # Get last order (if any)
+                new_start = (last_order.id + 1) if last_order else 1
+                cursor.execute("UPDATE sqlite_sequence SET seq = ? WHERE name='store_order'", [new_start - 1])  
+
+        messages.success(request, "Order sequence updated successfully.")
+        return redirect('report_page')  # Redirect back to report page
+
+    return render(request, "store/reset_order_sequence.html")

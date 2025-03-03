@@ -5,24 +5,26 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    height: 100vh;
+    min-height: 100vh;
     background: #2e2a3b; /* Dark background */
     display: flex;
     justify-content: center;
     align-items: center;
 }
-  
+
 /* Outer container that holds both columns */
 .outer-container {
     width: 900px;
-    height: 550px;
+    /* Removed the fixed height to allow expansion */
     background: #1e1d2b; /* Dark card-like background */
     border-radius: 12px;
     overflow: hidden;
     display: flex;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    /* Optional: add min-height if you want a baseline size:
+       min-height: 550px; */
 }
-  
+
 /********************************************************
   Left Section (Image + Info)
 ********************************************************/
@@ -88,11 +90,11 @@ html, body {
     background: #fff; /* Active dot */
 }
 
-/* Styling for the download image */
+/* Reduced image size slightly */
 .download-image {
-    width: 430px;   /* Fixed width */
-    height: 355px;  /* Fixed height */
-    object-fit: cover; /* Ensures the image fills the area */
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
     margin: 20px 0;
     border-radius: 12px;
 }
@@ -135,17 +137,17 @@ label {
     margin-bottom: 5px;
 }
 
-/* Input fields - Increased size & uniform color */
+/* Input fields - Slightly smaller */
 input[type="text"],
 input[type="password"],
 input[type="email"] {
     width: 100%;
-    padding: 12px;           /* Increased padding */
+    padding: 10px;       /* Reduced from 12px */
     background: #2a2836;
     border: 1px solid #3a3947;
     border-radius: 6px;
     color: #fff;
-    font-size: 17px;         /* Increased font size */
+    font-size: 15px;     /* Reduced from 17px */
     outline: none;
     transition: border 0.3s;
 }
@@ -209,12 +211,11 @@ button[type="submit"]:hover {
 @media (max-width: 600px) {
     .outer-container {
         width: 95%;
-        height: auto;
         flex-direction: column;
+        /* Remove height constraints entirely for mobile */
     }
     .left-section, .right-section {
         width: 100%;
-        height: auto;
     }
     .form-container {
         max-width: 100%;

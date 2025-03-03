@@ -1,11 +1,19 @@
-/* Body Background */
+/* Smooth gradient background */
 body {
     @apply flex justify-center items-center min-h-screen bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white;
 }
 
-/* Glassmorphic Login Container */
+/* Main container centering */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Glassmorphic Login Box */
 .login-container {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl p-8 w-96 text-center relative overflow-hidden;
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl p-8 text-center relative w-[350px];
 }
 
 /* Neon Glow Effect */
@@ -17,9 +25,9 @@ body {
     width: 200%;
     height: 200%;
     background: conic-gradient(from 0deg, #ff3d00, #ff9100, #ffea00, #3cff00, #00eaff, #0080ff, #7b00ff, #ff00ea, #ff3d00);
-    filter: blur(60px);
+    filter: blur(80px);
     z-index: -1;
-    opacity: 0.3;
+    opacity: 0.2;
     animation: glow 6s linear infinite;
 }
 
@@ -42,29 +50,29 @@ form {
 /* Input Fields */
 input[type="text"],
 input[type="password"] {
-    @apply w-full p-3 bg-white/20 text-white rounded-lg border border-white/30 outline-none text-center transition-all duration-300 focus:bg-white/30 focus:ring-2 focus:ring-pink-500;
+    @apply w-full p-3 bg-white/20 text-white rounded-lg border border-white/30 outline-none text-center transition-all duration-300 focus:bg-white/30 focus:ring-2 focus:ring-blue-500;
 }
 
 /* Neon Glow on Focus */
 input:focus {
-    box-shadow: 0 0 12px rgba(255, 0, 255, 0.6);
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
 }
 
 /* Glowing Button */
 button {
-    @apply bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
-    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.5);
+    @apply bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    box-shadow: 0 4px 15px rgba(0, 0, 255, 0.5);
 }
 
 /* Hover Effect */
 button:hover {
-    background: linear-gradient(135deg, #ff00ff, #8000ff);
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+    background: linear-gradient(135deg, #00ffff, #0044ff);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
 }
 
 /* Links */
 a {
-    @apply text-pink-300 font-semibold transition-colors duration-300 hover:text-pink-500;
+    @apply text-blue-300 font-semibold transition-colors duration-300 hover:text-blue-500;
 }
 
 /* Paragraph Spacing */

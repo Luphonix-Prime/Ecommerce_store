@@ -2,90 +2,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Register Page</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <title>Login</title>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
-<body class="d-flex justify-content-center align-items-center min-vh-100 text-white bg-[#2e2a3b]">
+<body>
 
-  <div class="glass-container">
-    <!-- Left Section (Image + Text) -->
-    <div class="left-section d-flex flex-column p-3">
-      <div class="d-flex justify-content-between">
-        <span class="fs-5 fw-semibold">AMU</span>
-        <button class="text-sm bg-white/20 px-3 py-1 rounded-md hover:bg-white/30 transition">
-          Back to website →
-        </button>
-      </div>
-      <div class="mt-auto">
-        <p class="fs-5 fw-medium">Capturing Moments, Creating Memories</p>
-        <div class="d-flex mt-2 gap-2">
-          <span class="w-4 h-1 bg-white/30 rounded"></span>
-          <span class="w-4 h-1 bg-white/30 rounded"></span>
-          <span class="w-4 h-1 bg-white rounded"></span>
-        </div>
-      </div>
+<div class="outer-container">
+  <!-- Left Column: Image + Heading/Text (Optional) -->
+  <div class="left-section">
+    <div class="top-bar">
+      <span class="brand-name">AMU</span>
+      <button class="back-btn">Back to website →</button>
     </div>
-
-    <!-- Right Section (Form) -->
-    <div class="right-section p-4">
-      <h2 class="text-2xl fw-bold">Create an account</h2>
-      <p class="text-sm mt-1">
-        Already have an account?
-        <a href="#" class="text-purple-400 text-decoration-none">Log in</a>
-      </p>
-
-      <!-- Form Wrapper: Only Outer Border Changed -->
-      <div class="form-wrapper mt-4 p-4">
-        <form method="post">
-          {% csrf_token %}
-          <div class="row g-3">
-            <div class="col-md-6">
-              <input type="text" placeholder="First name" class="input-field form-control" name="first_name" required>
-            </div>
-            <div class="col-md-6">
-              <input type="text" placeholder="Last name" class="input-field form-control" name="last_name" required>
-            </div>
-          </div>
-          <input type="email" placeholder="Email" class="input-field form-control mt-3" name="email" required>
-          <div class="position-relative mt-3">
-            <input type="password" placeholder="Enter your password" class="input-field form-control pe-5" name="password" required>
-            <span class="position-absolute top-50 end-0 translate-middle-y me-3 text-gray-300 cursor-pointer">👁</span>
-          </div>
-
-          <div class="form-check mt-3">
-            <input type="checkbox" class="form-check-input" name="terms" id="terms" required>
-            <label class="form-check-label text-sm" for="terms">
-              I agree to the <a href="#" class="text-purple-400 text-decoration-none">Terms & Conditions</a>
-            </label>
-          </div>
-
-          <button type="submit" class="btn-primary mt-3">Create account</button>
-        </form>
-      </div>
-
-      <p class="text-center text-sm mt-4">Or register with</p>
-      <div class="d-flex gap-3 mt-3">
-        <button class="social-btn">
-          <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google"> Google
-        </button>
-        <button class="social-btn">
-          <img src="https://img.icons8.com/ios-filled/24/ffffff/mac-os.png" alt="Apple"> Apple
-        </button>
+    <div class="bottom-info">
+      <p class="tagline">Capturing Moments,<br>Creating Memories</p>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
   </div>
 
-  <!-- Bootstrap JS (Optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Right Column: Your Login Form -->
+  <div class="right-section">
+    <div class="form-container">
+      <h2>Login</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+      </form>
+
+      <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+      <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

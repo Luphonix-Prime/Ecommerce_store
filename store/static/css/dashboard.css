@@ -1,273 +1,50 @@
 /* General Styling */
 body {
-    background: #f4f4f9;
+    background: #f4f4f4;
     font-family: 'Poppins', sans-serif;
 }
 
-/* Dashboard Container */
-.dashboard-container {
-    max-width: 900px;
-    margin: 50px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* Dashboard Heading */
-h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Dashboard Grid */
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
-    gap: 20px; /* Space between cards */
-    justify-content: center;
-}
-
-/* Remove underline from links */
-.dashboard-card {
-    text-decoration: none;
-    display: block;
-}
-
-/* Cards */
+/* Card Styling */
 .card {
-    width: 250px;
-    padding: 20px;
-    border-radius: 10px;
     color: white;
     text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* New Colors */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Backgrounds */
 .card-products {
-    background: linear-gradient(135deg, #7F00FF, #E100FF); /* Purple to Pink Neon */
+    background: linear-gradient(135deg, #7F00FF, #E100FF);
 }
 
 .card-categories {
-    background: linear-gradient(135deg, #36D1DC, #5B86E5); /* Cyan to Royal Blue */
+    background: linear-gradient(135deg, #36D1DC, #5B86E5);
 }
 
 .card-users {
     background: linear-gradient(135deg, #FF416C, #FF4B2B);
-    cursor: pointer;
 }
 
-/* Users Table Container */
+/* Users Table */
 .users-table-container {
-    grid-column: span 3;
-    width: 100%;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-top: 10px;
+    display: none;
 }
 
 /* Table Styling */
-.users-table-container table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-.users-table-container th,
-.users-table-container td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.users-table-container th {
-    background-color: #f4f4f9;
-    font-weight: bold;
-}
-
-/* Hover Effects */
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Title */
-h3 {
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-/* Count */
-.count {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-top: 10px;
-    animation: fadeIn 0.8s ease-in-out;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 📊 Live Report Section */
-.dashboard-report {
-    margin-top: 30px;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.dashboard-report h2 {
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-/* Report Selection */
-.dashboard-report form {
-    margin-bottom: 15px;
-}
-
-.dashboard-report select {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    outline: none;
-    transition: 0.3s;
-}
-
-.dashboard-report select:hover {
-    border-color: #5B86E5;
-}
-
-/* Report Data */
-.report-data {
-    padding: 15px;
-    background: #f9f9f9;
+.table {
     border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.report-data h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-.report-data p {
-    font-size: 1.2rem;
-    color: #333;
+    overflow: hidden;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .dashboard-grid {
+    .grid {
         grid-template-columns: 1fr;
     }
-
-    .card {
-        width: 100%;
-    }
-
-    .users-table-container {
-        width: 100%;
-    }
-
-    .dashboard-report {
-        width: 100%;
-    }
 }
-/* Sales Report Section */
-.dashboard-report {
-    margin-top: 30px;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.dashboard-report h2 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-/* Report Dropdown */
-.dashboard-report select {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    margin-bottom: 15px;
-}
-
-/* Report Data */
-.report-data {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #555;
-}
-
-.report-container {
-    margin-top: 20px;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.report-actions {
-    margin-top: 15px;
-}
-
-.print-btn, .clear-btn {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 5px;
-    transition: 0.3s;
-}
-
-.print-btn {
-    background: #28a745;
-    color: white;
-}
-
-.clear-btn {
-    background: #dc3545;
-    color: white;
-}
-
-.print-btn:hover {
-    background: #218838;
-}
-
-.clear-btn:hover {
-    background: #c82333;
-}
-
-

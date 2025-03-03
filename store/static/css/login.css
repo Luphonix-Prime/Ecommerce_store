@@ -1,77 +1,73 @@
-/* General page styling */
+/* Body Background */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f3f4f6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    @apply flex justify-center items-center min-h-screen bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white;
 }
 
-/* Container styling */
+/* Glassmorphic Login Container */
 .login-container {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 350px;
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl p-8 w-96 text-center relative overflow-hidden;
+}
+
+/* Neon Glow Effect */
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, #ff3d00, #ff9100, #ffea00, #3cff00, #00eaff, #0080ff, #7b00ff, #ff00ea, #ff3d00);
+    filter: blur(60px);
+    z-index: -1;
+    opacity: 0.3;
+    animation: glow 6s linear infinite;
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Heading */
 h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+    @apply text-3xl font-bold mb-6 text-white;
 }
 
-/* Form styling */
+/* Form */
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    @apply flex flex-col gap-4;
 }
 
-/* Input fields */
+/* Input Fields */
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    @apply w-full p-3 bg-white/20 text-white rounded-lg border border-white/30 outline-none text-center transition-all duration-300 focus:bg-white/30 focus:ring-2 focus:ring-pink-500;
 }
 
-/* Login button */
+/* Neon Glow on Focus */
+input:focus {
+    box-shadow: 0 0 12px rgba(255, 0, 255, 0.6);
+}
+
+/* Glowing Button */
 button {
-    background-color: #2563eb;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
+    @apply bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.5);
 }
 
+/* Hover Effect */
 button:hover {
-    background-color: #1e40af;
+    background: linear-gradient(135deg, #ff00ff, #8000ff);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
 }
 
 /* Links */
 a {
-    text-decoration: none;
-    color: #2563eb;
-    font-weight: 500;
-    transition: color 0.3s ease-in-out;
+    @apply text-pink-300 font-semibold transition-colors duration-300 hover:text-pink-500;
 }
 
-a:hover {
-    color: #1e40af;
-}
-
-/* Spacing for links */
+/* Paragraph Spacing */
 p {
-    margin-top: 15px;
+    @apply mt-4 text-sm;
 }

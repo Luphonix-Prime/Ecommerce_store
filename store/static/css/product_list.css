@@ -231,7 +231,7 @@
 
 /* Front Side (Image, Name, Price) */
 .flip-card-front {
-    background: white;
+    background: #1E293B;
 }
 
 .flip-card-front img {
@@ -248,7 +248,7 @@
 .flip-card-front .price {
     font-size: 20px;
     font-weight: bold;
-    color: #B12704;
+    color: #f2ff00d8;
 }
 
 /* Back Side (Description, Category, Buttons) */
@@ -267,4 +267,8 @@
     margin-top: 10px;
     padding: 8px 14px;
     font-size: 14px;
+}
+option {
+    background-color: transparent;
+    color: #5b5b5b;
 }

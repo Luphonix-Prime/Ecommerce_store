@@ -20,9 +20,9 @@
     <div class="bottom-info">
       <p class="tagline">Capturing Moments,<br>Creating Memories</p>
       <div class="dots">
-        <span id="login-dot"></span>
-        <span id="signup-dot"></span>
-        <span id="reset-dot"></span>
+          <span id="login-dot" class="{% if request.path == '/login/' %}active-dot{% endif %}"></span>
+          <span id="signup-dot" class="{% if request.path == '/signup/' %}active-dot{% endif %}"></span>
+          <span id="reset-dot" class="{% if request.path == '/password_reset/' %}active-dot{% endif %}"></span>
       </div>
     </div>
   </div>

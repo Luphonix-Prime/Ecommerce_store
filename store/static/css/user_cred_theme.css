@@ -276,14 +276,14 @@ button[type="submit"]:hover, .password-change-container button:hover, .password-
 .dots span {
     width: 10px;
     height: 10px;
-    background: gray;
+    background-color: #ffffff;
     border-radius: 50%;
     display: inline-block;
-    margin: 5px;
-    transition: background 0.3s;
-  }
-  
-  .dots .active-dot {
-    background: white; /* Highlight active dot */
-  }
+    margin: 0 5px;
+    transition: background 0.3s ease;
+}
+
+.dots span.active-dot {
+    background-color: #808080 !important; /* Ensure it overrides other styles */
+}
   

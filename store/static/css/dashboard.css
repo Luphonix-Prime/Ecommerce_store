@@ -5,17 +5,17 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* 🌟 Main Dashboard Background */
+/* 🌟 Main Dashboard Background (Scoped) */
 .dashboard-container {
     display: flex;
     min-height: 100vh;
-    background: #e5e7eb; /* Login page jaisa background */
+    background: #e5e7eb;
 }
 
-/* 🌟 Sidebar */
-.sidebar {
+/* 🌟 Sidebar (Scoped) */
+.dashboard-container .sidebar {
     width: 260px;
-    background: #0f172a; /* Same as login page */
+    background: #0f172a;
     padding: 20px;
     color: white;
     display: flex;
@@ -24,31 +24,31 @@
     transition: all 0.3s ease-in-out;
 }
 
-.logo {
+.dashboard-container .logo {
     font-size: 28px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 25px;
-    color: #facc15; /* Yellow Accent */
+    color: #facc15;
 }
 
-/* 🌟 Sidebar Menu */
-.menu li {
+/* 🌟 Sidebar Menu (Scoped) */
+.dashboard-container .menu li {
     list-style: none;
     padding: 12px;
     margin: 8px 0;
-    background: #1e293b; /* Same dark blue from login */
+    background: #1e293b;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.menu li:hover {
-    background: #facc15; /* Yellow Accent */
+.dashboard-container .menu li:hover {
+    background: #facc15;
     color: black;
 }
 
-.menu li a {
+.dashboard-container .menu li a {
     text-decoration: none;
     color: white;
     display: block;
@@ -56,18 +56,18 @@
     font-weight: 600;
 }
 
-.menu li:hover a {
+.dashboard-container .menu li:hover a {
     color: black;
 }
 
-/* 🌟 Dashboard Main Content */
-.dashboard-main {
+/* 🌟 Dashboard Main Content (Scoped) */
+.dashboard-container .dashboard-main {
     flex: 1;
     padding: 30px;
 }
 
-/* 🌟 Header */
-.dashboard-header {
+/* 🌟 Header (Scoped) */
+.dashboard-container .dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,14 +78,14 @@
     font-weight: 700;
 }
 
-/* 🌟 Stats Cards */
-.dashboard-stats {
+/* 🌟 Stats Cards (Scoped) */
+.dashboard-container .dashboard-stats {
     display: flex;
     gap: 20px;
     margin-top: 25px;
 }
 
-.stat-box {
+.dashboard-container .stat-box {
     flex: 1;
     padding: 25px;
     border-radius: 10px;
@@ -97,17 +97,16 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.stat-box:hover {
+.dashboard-container .stat-box:hover {
     transform: scale(1.05);
 }
 
-.stat-box {
-
-    background: #35445a; /* Same as login form */
+.dashboard-container .stat-box {
+    background: #35445a;
 }
 
-/* 🌟 Tables */
-table {
+/* 🌟 Tables (Scoped) */
+.dashboard-container table {
     width: 100%;
     background: white;
     border-radius: 10px;
@@ -116,21 +115,22 @@ table {
     margin-top: 25px;
 }
 
-thead {
-    background: #0f172a; /* Dark Blue */
+.dashboard-container thead {
+    background: #0f172a;
     color: white;
 }
 
-td, th {
+.dashboard-container td, 
+.dashboard-container th {
     padding: 14px;
     text-align: center;
     border-bottom: 1px solid #ddd;
     font-size: 15px;
 }
 
-/* 🌟 Buttons */
-button {
-    background: #facc15; /* Yellow Accent */
+/* 🌟 Buttons (Scoped) */
+.dashboard-container button {
+    background: #facc15;
     color: black;
     border: none;
     padding: 12px 18px;
@@ -140,12 +140,12 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
-    background: #d97706; /* Darker Yellow */
+.dashboard-container button:hover {
+    background: #d97706;
 }
 
-/* 🌟 Add Category Button */
-.btn-add {
+/* 🌟 Add Category Button (Scoped) */
+.dashboard-container .btn-add {
     display: inline-block;
     background: #facc15;
     color: black;
@@ -157,12 +157,12 @@ button:hover {
     transition: background 0.3s ease;
 }
 
-.btn-add:hover {
+.dashboard-container .btn-add:hover {
     background: #d97706;
 }
 
-/* 🌟 Table Actions */
-.action-buttons a {
+/* 🌟 Table Actions (Scoped) */
+.dashboard-container .action-buttons a {
     display: inline-block;
     padding: 8px 14px;
     margin-right: 5px;
@@ -171,28 +171,37 @@ button:hover {
     font-weight: 600;
 }
 
-.btn-edit {
-    background: #2563eb; /* Blue */
+.dashboard-container .btn-edit {
+    background: #2563eb;
     color: white;
 }
 
-.btn-delete {
-    background: #dc2626; /* Red */
+.dashboard-container .btn-delete {
+    background: #dc2626;
     color: white;
 }
 
-/* 🌟 Mobile Responsive */
+/* 🌟 Mobile Responsive (Scoped) */
 @media (max-width: 768px) {
     .dashboard-container {
         flex-direction: column;
     }
 
-    .sidebar {
+    .dashboard-container .sidebar {
         width: 100%;
         height: auto;
     }
 
-    .dashboard-stats {
+    .dashboard-container .dashboard-stats {
         flex-direction: column;
     }
+}
+
+/* 🚀 Prevent base.css from affecting dashboard */
+.dashboard-container .navbar,
+.dashboard-container .navbar a,
+.dashboard-container .navbar .btn,
+.dashboard-container .navbar .cart-button,
+.dashboard-container .navbar .logout-button {
+    all: unset;
 }

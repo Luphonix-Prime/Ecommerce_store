@@ -7,45 +7,47 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-left">
-            {% if user.is_authenticated %}
-                <div class="profile">
-                    <img src="{% static 'images/profile.png' %}" alt="Profile" class="profile-img">
-                    <a href="{% url 'profile' %}"><span class="username">{{ user.username }}</span></a>
-                </div>
-            {% endif %}
-        </div>
+    <div class="store-container">
+        <nav class="store-navbar">
+            <div class="store-nav-left">
+                {% if user.is_authenticated %}
+                    <div class="store-profile">
+                        <img src="{% static 'images/profile.png' %}" alt="Profile" class="store-profile-img">
+                        <a href="{% url 'profile' %}" class="store-username">{{ user.username }}</a>
+                    </div>
+                {% endif %}
+            </div>
 
-        <div class="nav-center">
-            <a href="{% url 'product_list' %}" class="logo-link">
-                <img src="{% static 'images/logo.png' %}" alt="Store Logo" class="logo-img">
-            </a>
-            <form method="GET" action="{% url 'search_results' %}" class="search-form">
-                <input type="text" name="q" placeholder="Search products..." required>
-                <button type="submit">🔍</button>
-            </form>
-        </div>
-
-        <div class="nav-right">
-            {% if user.is_authenticated %}
-                <a href="{% url 'cart' %}" class="cart-btn">
-                    <span class="cart-icon">🛒</span> Cart
+            <div class="store-nav-center">
+                <a href="{% url 'product_list' %}" class="store-logo-link">
+                    <img src="{% static 'images/logo.png' %}" alt="Store Logo" class="store-logo-img">
                 </a>
-                <form action="{% url 'logout' %}" method="post" class="logout-form">
-                    {% csrf_token %}
-                    <button type="submit" class="logout-btn">Logout</button>
+                <form method="GET" action="{% url 'search_results' %}" class="store-search-form">
+                    <input type="text" name="q" placeholder="Search products..." required>
+                    <button type="submit">🔍</button>
                 </form>
-            {% else %}
-                <a href="{% url 'signup' %}" class="auth-btn">Signup</a>
-                <a href="{% url 'login' %}" class="auth-btn">Login</a>
-            {% endif %}
-        </div>
-    </nav>
+            </div>
 
-    <div class="content">
-        {% block content %}
-        {% endblock %}
+            <div class="store-nav-right">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'cart' %}" class="store-cart-btn">
+                        <span class="store-cart-icon">🛒</span> Cart
+                    </a>
+                    <form action="{% url 'logout' %}" method="post" class="store-logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="store-logout-btn">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'signup' %}" class="store-auth-btn">Signup</a>
+                    <a href="{% url 'login' %}" class="store-auth-btn">Login</a>
+                {% endif %}
+            </div>
+        </nav>
+
+        <div class="store-content">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
 </body>
 </html>

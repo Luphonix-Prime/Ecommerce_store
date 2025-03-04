@@ -78,7 +78,7 @@
     font-weight: 700;
 }
 
-/* 🌟 Stats Cards (Scoped) */
+/* 🌟 Stats Cards */
 .dashboard-container .dashboard-stats {
     display: flex;
     gap: 20px;
@@ -88,21 +88,72 @@
 .dashboard-container .stat-box {
     flex: 1;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 12px;
     text-align: center;
     color: white;
     font-weight: bold;
-    transition: all 0.3s ease-in-out;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
+/* 🚀 New Background Gradient Effect */
+.dashboard-container .stat-box.red {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.dashboard-container .stat-box.blue {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.dashboard-container .stat-box.orange {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.dashboard-container .stat-box.green {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+/* 🌟 Hover Effect - Elevation and Glow */
 .dashboard-container .stat-box:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.dashboard-container .stat-box {
-    background: #35445a;
+/* ✨ Subtle Shine Effect on Hover */
+.dashboard-container .stat-box::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 250%;
+    height: 250%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+    transition: all 0.4s ease-in-out;
+}
+
+.dashboard-container .stat-box:hover::before {
+    top: 0;
+    left: 0;
+}
+
+/* 🌟 Stats Number Style */
+.dashboard-container .stat-box h2 {
+    font-size: 32px;
+    margin: 5px 0;
+}
+
+/* 🌟 Stats Title */
+.dashboard-container .stat-box p {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.9;
 }
 
 /* 🌟 Tables (Scoped) */

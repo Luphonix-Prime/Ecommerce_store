@@ -1,3 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
 /* Reset styles only within .store-container */
 .store-container * {
     margin: 0 ;

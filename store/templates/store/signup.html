@@ -8,16 +8,15 @@
     <div class="top-bar">
       <span class="brand-name">Store</span>
     </div>
-    <!-- Added Image Tag (Same as Login) -->
     <a href="https://source.unsplash.com/600x800/?landscape,dark" download>
       <img src="{% static "images/nightsky.png" %}" alt="Download Background" class="download-image">
     </a>
     <div class="bottom-info">
       <p class="tagline">Capturing Products,<br>Creating Stores</p>
       <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span id="login-dot"></span>
+        <span id="signup-dot"></span>
+        <span id="reset-dot"></span>
       </div>
     </div>
   </div>
@@ -26,7 +25,6 @@
   <div class="right-section">
     <div class="form-container">
       <h2>Sign Up</h2>
-
       <form method="post">
         {% csrf_token %}
         <label for="{{ form.username.id_for_label }}">Username</label>
@@ -60,7 +58,9 @@
       </form>
 
       <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
-      </div>
     </div>
+  </div>
 </div>
+
+<script src="{% static 'js/navigation.js' %}"></script>
 {% endblock %}

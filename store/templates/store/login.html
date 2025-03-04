@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'css/user_cred_theme.css' %}">
 </head>
 <body>
@@ -15,16 +14,15 @@
     <div class="top-bar">
       <span class="brand-name">Store</span>
     </div>
-    <!-- Updated Download Image Tag with specified dimensions -->
     <a href="https://source.unsplash.com/600x800/?landscape,dark" download>
       <img src="{% static "images/background.png" %}" alt="Download Background" class="download-image">
     </a>
     <div class="bottom-info">
       <p class="tagline">Capturing Moments,<br>Creating Memories</p>
       <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span id="login-dot"></span>
+        <span id="signup-dot"></span>
+        <span id="reset-dot"></span>
       </div>
     </div>
   </div>
@@ -44,6 +42,6 @@
   </div>
 </div>
 
+<script src="{% static 'js/navigation.js' %}"></script>
 </body>
 </html>
-```                                     

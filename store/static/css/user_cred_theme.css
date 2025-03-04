@@ -272,3 +272,18 @@ button[type="submit"]:hover, .password-change-container button:hover, .password-
         padding: 20px;
     }
 }
+
+.dots span {
+    width: 10px;
+    height: 10px;
+    background: gray;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+    transition: background 0.3s;
+  }
+  
+  .dots .active-dot {
+    background: white; /* Highlight active dot */
+  }
+  

@@ -1,6 +1,6 @@
 /* Reset styles only within .store-container */
 .store-container * {
-    margin: 0;
+    margin: 0 ;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
@@ -8,7 +8,7 @@
 
 /* Store-specific body styling */
 .store-container {
-    background-color: #f8f9fa;
+    background-color: #0f172a !important;
 }
 
 /* Navbar */
@@ -139,48 +139,56 @@
     max-width: 1100px;
     margin: 20px auto;
     padding: 20px;
-    background: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    background: #1e293b;
+    color: #f8fafc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    /* border-radius: 5px; */
 }
 
-/* Search Box */
-.store-search-form {
-    display: flex;
-    align-items: center;
-    background: white;
-    border: 2px solid #ddd;
-    border-radius: 20px;
-    padding: 5px;
-    width: 700px;
-    transition: all 0.3s ease-in-out;
-}
-
-.store-search-form input {
-    border: none;
-    outline: none;
-    padding: 8px 10px;
-    width: 100%;
-    font-size: 14px;
-    border-radius: 20px;
-}
-
-.store-search-form button {
-    background: none;
-    border: none;
+/* Product Card */
+.store-product-card {
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
     cursor: pointer;
+}
+
+.store-product-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.store-product-details {
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+
+.store-product-title {
     font-size: 18px;
-    padding: 5px;
-    transition: transform 0.2s ease;
+    font-weight: bold;
 }
 
-.store-search-form button:hover {
+.store-product-price {
+    font-size: 16px;
+    color: #FFD700;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Hover Effects */
+.store-product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
+}
+
+.store-product-card:hover img {
     transform: scale(1.1);
-}
-
-.store-search-form input:focus {
-    border-color: #28a745;
-    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+    filter: brightness(1.2);
 }
 
 /* Responsive */

@@ -157,6 +157,8 @@
 
 .product-card:hover {
     transform: scale(1.05);
+    
+
 }
 
 .product-card img {
@@ -167,7 +169,7 @@
 
 /* Product Table Hover Effect */
 .product-table tr:hover {
-    background-color: #f8f9fa; /* Light gray background */
+    background-color: #7a7985; /* Light gray background */
     transform: scale(1.02);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }

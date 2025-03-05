@@ -23,6 +23,8 @@ urlpatterns = [
     path('profile/', profile_view, name='profile'),
     path('profile/edit/', edit_profile, name='edit_profile'),
     path('add-product/', add_product, name='add_product'),
+    path('product/edit/<int:product_id>/', views.edit_product, name='edit_product'),
+
     
     path('change-email/', change_email, name='change_email'),
     

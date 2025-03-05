@@ -1,38 +1,36 @@
-/* General Styling */
-body {
+.profile-page {
     font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    text-align: center;
+    /* background-color: #f8f9fa; */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* Profile Container */
 .profile-container {
-    width: 60%;
+    width: 100%;
     max-width: 500px;
     background: white;
-    margin: 50px auto;
+    color:#1F2937   ;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-/* Profile Heading */
-h2 {
+.profile-container h2 {
     color: #1F2937; /* Dark Blue */
     margin-bottom: 20px;
 }
 
-/* Profile Info */
-p {
+.profile-container p {
     font-size: 18px;
     margin: 10px 0;
 }
 
-/* Links */
-a {
+.profile-container a,
+.profile-container button {
     display: block;
     background-color: #1F2937; /* Dark Blue */
     color: white;
@@ -43,29 +41,24 @@ a {
     transition: background 0.3s ease-in-out;
     margin: 10px auto;
     width: 200px;
+    text-align: center;
 }
 
-a:hover {
+.profile-container a:hover {
     background-color: #374151; /* Darker Blue */
 }
 
-/* Logout Button */
-form {
+.profile-container form {
     margin-top: 20px;
 }
 
-button {
+.profile-container button {
     background-color: #DC2626; /* Red */
-    color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background 0.3s ease-in-out;
-    width: 200px;
 }
 
-button:hover {
+.profile-container button:hover {
     background-color: #B91C1C; /* Darker Red */
 }

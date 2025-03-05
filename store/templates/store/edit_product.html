@@ -5,24 +5,7 @@
 
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    
-    <label for="name">Product Name:</label>
-    <input type="text" name="name" id="name" value="{{ product.name }}" required>
-    
-    <label for="category">Category:</label>
-    <select name="category" id="category" required>
-        {% for category in categories %}
-            <option value="{{ category.id }}" {% if product.category.id == category.id %}selected{% endif %}>
-                {{ category.name }}
-            </option>
-        {% endfor %}
-    </select>
-
-    <label for="price">Price:</label>
-    <input type="number" name="price" id="price" value="{{ product.price }}" required>
-
-    <label for="image">Product Image:</label>
-    <input type="file" name="image" id="image">
+    {{ form.as_p }}  {# This renders all form fields automatically #}
 
     <button type="submit" class="save-btn">Save Changes</button>
 </form>

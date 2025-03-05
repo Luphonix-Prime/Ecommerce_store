@@ -206,6 +206,7 @@ def edit_profile(request):
 
 
 
+
 def edit_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     categories = Category.objects.all()
@@ -214,7 +215,11 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            return redirect('store/product_detail', product_id=product.id)
+            print("✅ Product updated successfully!")  # Debugging
+            return redirect('product_list')  # Redirect to product list
+        else:
+            print("❌ Form Errors:", form.errors)  # Debugging: Check errors
+
     else:
         form = ProductForm(instance=product)
 

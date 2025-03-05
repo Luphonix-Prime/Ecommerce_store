@@ -3,6 +3,8 @@
 {% block content %}
 
 <div class="container mt-4">
+    <link rel="stylesheet" href="{% static 'css/product_list.css' %}">
+
     <h2 class="mb-3">Product List</h2>
     {% comment %} {%if user.is_authenticated %}
     <a href="{% url 'add_product' %}" class="action-btn add-product-btn">➕ Add Product</a>
@@ -136,6 +138,5 @@
         document.getElementById('layout' + layoutNumber).classList.remove('hidden');
     }
 </script>
-<link rel="stylesheet" href="{% static 'css/product_list.css' %}">
 
 {% endblock %}

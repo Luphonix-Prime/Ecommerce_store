@@ -210,3 +210,29 @@ body {
         width: 200px;
     }
 }
+
+
+/* Signup and Login Button */
+.store-auth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.store-auth-btn:hover {
+    background: linear-gradient(45deg, #0056b3, #003f7f);
+    transform: translateY(-3px) rotate(-2deg);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+}

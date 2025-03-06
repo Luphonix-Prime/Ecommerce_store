@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from .views import (
-    CustomLoginView, category_detail, clear_report, delete_user,  product_list, product_detail, add_to_cart, 
+    CustomLoginView, category_detail, clear_report, delete_user, fake_products_page, get_fake_products,  product_list, product_detail, add_to_cart, 
     cart_view, checkout, order_success, remove_from_cart, reset_order_sequence, search_results, toggle_staff, update_cart,
     category_list, profile_view, add_product, change_email, report_page, clear_report, edit_product, edit_profile, dashboard, delete_product
 )
@@ -60,4 +60,7 @@ urlpatterns = [
     path('report/', report_page, name='report_page'),
     path('clear_report/', clear_report, name='clear_report'),
     path('reset_order_sequence/', reset_order_sequence, name='reset_order_sequence'),
+    
+     path("get_fake_products/", get_fake_products, name="fake-products"),
+    path("fake-products-page/", fake_products_page, name="fake-products-page"),
 ]

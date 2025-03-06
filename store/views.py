@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.text import slugify
 from .models import NavbarLink, Product, Cart, Order, Category
@@ -14,6 +15,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 from django.db import connection  # To reset the database sequence
 
+from django.views.decorators.csrf import csrf_exempt
+from faker import Faker
+fake = Faker()
 
 from datetime import datetime, timedelta
 from django.db.models import Sum, Count
@@ -400,3 +404,27 @@ def category_detail(request, category_slug):
 def product_detail(request, product_slug):
     product = get_object_or_404(Product, slug=product_slug)
     return render(request, 'store/product_detail.html', {'product': product})
+
+fake = Faker()
+
+@csrf_exempt  # If CSRF is causing issues
+def get_fake_products(request):
+    num = request.GET.get('num', 5)  # Get 'num' from request
+    try:
+        num = int(num)  # Convert to integer
+        num = max(1, min(num, 20))  # Limit between 1-20
+    except ValueError:
+        return JsonResponse({"error": "Invalid number"}, status=400)
+
+    fake_products = []
+    for _ in range(num):  # Generate the requested number of fake products
+        fake_products.append({
+            "name": fake.word().capitalize() + " Product",
+            "price": round(fake.random_number(digits=2) + 0.99, 2),
+            "description": fake.sentence(),
+        })
+
+    return JsonResponse(fake_products, safe=False)
+
+def fake_products_page(request):
+    return render(request, "store/fake_products.html")

@@ -1,0 +1,1097 @@
+[
+    {
+      "model": "store.category",
+      "pk": 1,
+      "fields": {
+        "name": "Snacks",
+        "slug": "snacks",
+        "created_at": "2024-03-06T12:00:00Z"
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 2,
+      "fields": {
+        "name": "Chocolates",
+        "slug": "chocolates",
+        "created_at": "2024-03-06T12:00:00Z"
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 3,
+      "fields": {
+        "name": "Smartphones",
+        "slug": "smartphones",
+        "created_at": "2024-03-06T12:00:00Z"
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 4,
+      "fields": {
+        "name": "Laptops",
+        "slug": "laptops",
+        "created_at": "2024-03-06T12:00:00Z"
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 5,
+      "fields": {
+        "name": "Beverages",
+        "slug": "beverages",
+        "created_at": "2024-03-06T12:00:00Z"
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 6,
+      "fields": {
+        "name": "Accessories",
+        "slug": "accessories",
+        "created_at": "2024-03-06T12:00:00Z"
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 7,
+      "fields": {
+        "name": "Televisions",
+        "slug": "televisions",
+        "created_at": "2024-03-06T12:00:00Z"
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 8,
+      "fields": {
+        "name": "Home Appliances",
+        "slug": "home-appliances",
+        "created_at": "2024-03-06T12:00:00Z"
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 9,
+      "fields": {
+        "name": "Footwear",
+        "slug": "footwear",
+        "created_at": "2024-03-06T12:00:00Z"
+      }
+    },
+    {
+      "model": "store.product",
+      "fields": {
+        "name": "Balaji Wafers - Masala Magic",
+        "slug": "balaji-wafers-masala-magic",
+        "category": 1,
+        "price": 20.00,
+        "description": "Crispy and spicy potato wafers with a unique masala flavor.",
+        "image": "products/balaji_masala_magic.jpg"
+      }
+    },
+    {
+      "model": "store.product",
+      "fields": {
+        "name": "Lays Classic Salted",
+        "slug": "lays-classic-salted",
+        "category": 1,
+        "price": 30.00,
+        "description": "Classic salted potato chips for a light and crispy snack.",
+        "image": "products/lays_classic_salted.jpg"
+      }
+    },
+    {
+      "model": "store.product",
+      "fields": {
+        "name": "Kurkure Spicy Treat",
+        "slug": "kurkure-spicy-treat",
+        "category": 1,
+        "price": 25.00,
+        "description": "Crunchy corn puffs with a spicy flavor.",
+        "image": "products/kurkure_spicy_treat.jpg"
+      }
+    },
+    {
+      "model": "store.product",
+      "fields": {
+        "name": "Cadbury Dairy Milk Chocolate",
+        "slug": "cadbury-dairy-milk-chocolate",
+        "category": 2,
+        "price": 50.00,
+        "description": "Smooth and creamy milk chocolate with a rich taste.",
+        "image": "products/cadbury_dairy_milk.jpg"
+      }
+    },
+    {
+      "model": "store.product",
+      "fields": {
+        "name": "Ferrero Rocher",
+        "slug": "ferrero-rocher",
+        "category": 2,
+        "price": 299.00,
+        "description": "Premium chocolate with hazelnut filling.",
+        "image": "products/ferrero_rocher.jpg"
+      }
+    },
+    {
+      "model": "store.product",
+      "fields": {
+        "name": "Samsung Galaxy S23",
+        "slug": "samsung-galaxy-s23",
+        "category": 3,
+        "price": 74999.00,
+        "description": "Flagship smartphone with AMOLED display and powerful processor.",
+        "image": "products/samsung_galaxy_s23.jpg"
+      }
+    },
+    {
+      "model": "store.product",
+      "fields": {
+        "name": "iPhone 14 Pro",
+        "slug": "iphone-14-pro",
+        "category": 3,
+        "price": 129999.00,
+        "description": "Premium smartphone with ProMotion display and advanced camera system.",
+        "image": "products/iphone_14_pro.jpg"
+      }
+    },
+    {
+      "model": "store.product",
+      "fields": {
+        "name": "Apple MacBook Air M2",
+        "slug": "apple-macbook-air-m2",
+        "category": 4,
+        "price": 114999.00,
+        "description": "Thin and powerful laptop with the latest Apple M2 chip.",
+        "image": "products/macbook_air_m2.jpg"
+      }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+          "name": "Bingo Mad Angles - Tomato Madness",
+          "slug": "bingo-mad-angles-tomato-madness",
+          "category": 1,
+          "price": 20.00,
+          "description": "Tangy tomato-flavored crispy triangular chips.",
+          "image": "products/bingo_mad_angles_tomato.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Pringles Sour Cream & Onion",
+          "slug": "pringles-sour-cream-onion",
+          "category": 1,
+          "price": 99.00,
+          "description": "Crispy stacked chips with a sour cream and onion flavor.",
+          "image": "products/pringles_sour_cream_onion.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Haldiram's Bhujia Sev",
+          "slug": "haldirams-bhujia-sev",
+          "category": 1,
+          "price": 60.00,
+          "description": "Spicy and crunchy gram flour noodles, a classic Indian snack.",
+          "image": "products/haldirams_bhujia.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Too Yumm Multigrain Chips",
+          "slug": "too-yumm-multigrain-chips",
+          "category": 1,
+          "price": 40.00,
+          "description": "Healthy multigrain chips with a delicious crunch.",
+          "image": "products/too_yumm_multigrain.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Doritos Nacho Cheese",
+          "slug": "doritos-nacho-cheese",
+          "category": 1,
+          "price": 90.00,
+          "description": "Cheesy, crunchy tortilla chips with a bold flavor.",
+          "image": "products/doritos_nacho_cheese.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Sunfeast Yippee Noodles",
+          "slug": "sunfeast-yippee-noodles",
+          "category": 1,
+          "price": 25.00,
+          "description": "Instant noodles with a rich and spicy masala taste.",
+          "image": "products/yippee_noodles.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Act II Butter Popcorn",
+          "slug": "act-ii-butter-popcorn",
+          "category": 1,
+          "price": 30.00,
+          "description": "Instant microwave butter popcorn for movie nights.",
+          "image": "products/act_ii_butter_popcorn.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Tastilo Nacho Chips",
+          "slug": "tastilo-nacho-chips",
+          "category": 1,
+          "price": 50.00,
+          "description": "Crispy nacho chips, perfect with dip.",
+          "image": "products/tastilo_nacho_chips.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Uncle Chipps Spicy Treat",
+          "slug": "uncle-chipps-spicy-treat",
+          "category": 1,
+          "price": 25.00,
+          "description": "Spicy potato chips for a zesty snacking experience.",
+          "image": "products/uncle_chipps_spicy.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Little Debbie Swiss Roll",
+          "slug": "little-debbie-swiss-roll",
+          "category": 1,
+          "price": 75.00,
+          "description": "Chocolate-coated swiss roll with a creamy filling.",
+          "image": "products/little_debbie_swiss_roll.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Lindt Swiss Classic Milk Chocolate",
+          "slug": "lindt-swiss-classic-milk-chocolate",
+          "category": 2,
+          "price": 250.00,
+          "description": "Smooth and creamy Swiss milk chocolate.",
+          "image": "products/lindt_swiss_milk.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Toblerone Dark Chocolate",
+          "slug": "toblerone-dark-chocolate",
+          "category": 2,
+          "price": 200.00,
+          "description": "Rich dark chocolate with honey and almond nougat.",
+          "image": "products/toblerone_dark.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Hershey's Cookies 'n' Creme",
+          "slug": "hersheys-cookies-n-creme",
+          "category": 2,
+          "price": 180.00,
+          "description": "White chocolate with crunchy cookie pieces.",
+          "image": "products/hersheys_cookies_creme.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Mars Chocolate Bar",
+          "slug": "mars-chocolate-bar",
+          "category": 2,
+          "price": 120.00,
+          "description": "Caramel and nougat covered in milk chocolate.",
+          "image": "products/mars_bar.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Snickers Almond",
+          "slug": "snickers-almond",
+          "category": 2,
+          "price": 150.00,
+          "description": "Nougat, caramel, and almonds covered in chocolate.",
+          "image": "products/snickers_almond.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Milky Way Chocolate Bar",
+          "slug": "milky-way-chocolate-bar",
+          "category": 2,
+          "price": 130.00,
+          "description": "Soft nougat and caramel covered in milk chocolate.",
+          "image": "products/milky_way.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Godiva Dark Chocolate Truffles",
+          "slug": "godiva-dark-chocolate-truffles",
+          "category": 2,
+          "price": 400.00,
+          "description": "Premium dark chocolate truffles with rich filling.",
+          "image": "products/godiva_truffles.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "KitKat Chunky Peanut Butter",
+          "slug": "kitkat-chunky-peanut-butter",
+          "category": 2,
+          "price": 140.00,
+          "description": "Crispy wafer covered in milk chocolate with peanut butter filling.",
+          "image": "products/kitkat_chunky_pb.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Ghirardelli Sea Salt Caramel",
+          "slug": "ghirardelli-sea-salt-caramel",
+          "category": 2,
+          "price": 320.00,
+          "description": "Rich chocolate squares filled with creamy sea salt caramel.",
+          "image": "products/ghirardelli_caramel.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Ritter Sport Hazelnut",
+          "slug": "ritter-sport-hazelnut",
+          "category": 2,
+          "price": 190.00,
+          "description": "Milk chocolate with crunchy hazelnuts.",
+          "image": "products/ritter_sport_hazelnut.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Samsung Galaxy S24 Ultra",
+          "slug": "samsung-galaxy-s24-ultra",
+          "category": 3,
+          "price": 1299.00,
+          "description": "Latest flagship with top-tier performance and camera quality.",
+          "image": "products/samsung_galaxy_s24_ultra.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "iPhone 15 Pro Max",
+          "slug": "iphone-15-pro-max",
+          "category": 3,
+          "price": 1399.00,
+          "description": "Premium Apple device with an A17 Bionic chip and ProMotion display.",
+          "image": "products/iphone_15_pro_max.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "OnePlus 12 Pro",
+          "slug": "oneplus-12-pro",
+          "category": 3,
+          "price": 999.00,
+          "description": "Fast and smooth experience with a Snapdragon 8 Gen 3 processor.",
+          "image": "products/oneplus_12_pro.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Google Pixel 8 Pro",
+          "slug": "google-pixel-8-pro",
+          "category": 3,
+          "price": 1099.00,
+          "description": "Advanced AI-powered smartphone with the best camera software.",
+          "image": "products/google_pixel_8_pro.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Xiaomi 14 Ultra",
+          "slug": "xiaomi-14-ultra",
+          "category": 3,
+          "price": 899.00,
+          "description": "Flagship-level smartphone with a Leica camera system.",
+          "image": "products/xiaomi_14_ultra.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Asus ROG Phone 8",
+          "slug": "asus-rog-phone-8",
+          "category": 3,
+          "price": 1199.00,
+          "description": "Gaming-focused smartphone with a high refresh rate display.",
+          "image": "products/asus_rog_phone_8.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Sony Xperia 1 V",
+          "slug": "sony-xperia-1-v",
+          "category": 3,
+          "price": 1299.00,
+          "description": "Cinema-grade display and pro photography features.",
+          "image": "products/sony_xperia_1_v.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Realme GT Neo 6",
+          "slug": "realme-gt-neo-6",
+          "category": 3,
+          "price": 699.00,
+          "description": "Affordable performance smartphone with great battery life.",
+          "image": "products/realme_gt_neo_6.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Vivo X100 Pro",
+          "slug": "vivo-x100-pro",
+          "category": 3,
+          "price": 1099.00,
+          "description": "High-end camera phone with Zeiss optics.",
+          "image": "products/vivo_x100_pro.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Nothing Phone 2",
+          "slug": "nothing-phone-2",
+          "category": 3,
+          "price": 799.00,
+          "description": "Minimalist design with a unique LED Glyph interface.",
+          "image": "products/nothing_phone_2.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Dell XPS 13",
+          "slug": "dell-xps-13",
+          "category": 4,
+          "price": 1299.00,
+          "description": "13-inch laptop with InfinityEdge display and powerful performance.",
+          "image": "products/dell_xps_13.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "MacBook Air M2",
+          "slug": "macbook-air-m2",
+          "category": 4,
+          "price": 1199.00,
+          "description": "Ultra-lightweight laptop with Apple M2 chip and Retina display.",
+          "image": "products/macbook_air_m2.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "HP Spectre x360",
+          "slug": "hp-spectre-x360",
+          "category": 4,
+          "price": 1399.00,
+          "description": "2-in-1 convertible laptop with OLED touchscreen.",
+          "image": "products/hp_spectre_x360.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Asus ROG Zephyrus G14",
+          "slug": "asus-rog-zephyrus-g14",
+          "category": 4,
+          "price": 1499.00,
+          "description": "Powerful gaming laptop with Ryzen 9 and RTX 3060.",
+          "image": "products/asus_rog_zephyrus_g14.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Lenovo ThinkPad X1 Carbon",
+          "slug": "lenovo-thinkpad-x1-carbon",
+          "category": 4,
+          "price": 1599.00,
+          "description": "Premium business laptop with lightweight carbon fiber design.",
+          "image": "products/lenovo_thinkpad_x1_carbon.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Acer Predator Helios 300",
+          "slug": "acer-predator-helios-300",
+          "category": 4,
+          "price": 1199.00,
+          "description": "High-performance gaming laptop with 144Hz display.",
+          "image": "products/acer_predator_helios_300.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Razer Blade 15",
+          "slug": "razer-blade-15",
+          "category": 4,
+          "price": 1799.00,
+          "description": "Sleek gaming laptop with RTX 3070 and 165Hz display.",
+          "image": "products/razer_blade_15.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "MSI GS66 Stealth",
+          "slug": "msi-gs66-stealth",
+          "category": 4,
+          "price": 1899.00,
+          "description": "High-end gaming laptop with advanced cooling system.",
+          "image": "products/msi_gs66_stealth.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Samsung Galaxy Book Pro",
+          "slug": "samsung-galaxy-book-pro",
+          "category": 4,
+          "price": 999.00,
+          "description": "Ultra-thin and lightweight laptop with AMOLED display.",
+          "image": "products/samsung_galaxy_book_pro.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Google Pixelbook Go",
+          "slug": "google-pixelbook-go",
+          "category": 4,
+          "price": 849.00,
+          "description": "Portable Chromebook with great battery life.",
+          "image": "products/google_pixelbook_go.jpg"
+        }
+      },
+      
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Coca-Cola Classic",
+          "slug": "coca-cola-classic",
+          "category": 5,
+          "price": 1.50,
+          "description": "Refreshing carbonated soft drink.",
+          "image": "products/coca_cola_classic.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Pepsi",
+          "slug": "pepsi",
+          "category": 5,
+          "price": 1.50,
+          "description": "Classic cola beverage with a bold taste.",
+          "image": "products/pepsi.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Red Bull Energy Drink",
+          "slug": "red-bull-energy-drink",
+          "category": 5,
+          "price": 2.99,
+          "description": "Energy drink that gives you wings!",
+          "image": "products/red_bull_energy_drink.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Monster Energy",
+          "slug": "monster-energy",
+          "category": 5,
+          "price": 2.99,
+          "description": "High-caffeine energy drink for active lifestyles.",
+          "image": "products/monster_energy.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+            "name": "Leather Wallet",
+            "slug": "leather-wallet",
+            "category": 6,
+            "price": 19.99,
+            "description": "Premium quality leather wallet with multiple compartments.",
+            "image": "products/leather_wallet.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Sunglasses Aviator",
+            "slug": "sunglasses-aviator",
+            "category": 6,
+            "price": 29.99,
+            "description": "Classic aviator sunglasses with UV protection.",
+            "image": "products/sunglasses_aviator.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Leather Belt",
+            "slug": "leather-belt",
+            "category": 6,
+            "price": 14.99,
+            "description": "Durable leather belt with a stylish buckle.",
+            "image": "products/leather_belt.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Smartwatch Strap",
+            "slug": "smartwatch-strap",
+            "category": 6,
+            "price": 9.99,
+            "description": "Comfortable and adjustable smartwatch strap.",
+            "image": "products/smartwatch_strap.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Baseball Cap",
+            "slug": "baseball-cap",
+            "category": 6,
+            "price": 12.99,
+            "description": "Trendy baseball cap made of high-quality fabric.",
+            "image": "products/baseball_cap.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Keychain Set",
+            "slug": "keychain-set",
+            "category": 6,
+            "price": 7.99,
+            "description": "Set of stylish keychains for everyday use.",
+            "image": "products/keychain_set.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Touchscreen Gloves",
+            "slug": "touchscreen-gloves",
+            "category": 6,
+            "price": 15.99,
+            "description": "Warm gloves compatible with touchscreen devices.",
+            "image": "products/touchscreen_gloves.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Travel Backpack",
+            "slug": "travel-backpack",
+            "category": 6,
+            "price": 39.99,
+            "description": "Spacious and durable backpack for travelers.",
+            "image": "products/travel_backpack.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Phone Stand",
+            "slug": "phone-stand",
+            "category": 6,
+            "price": 8.99,
+            "description": "Adjustable phone stand for desk and travel.",
+            "image": "products/phone_stand.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Canvas Tote Bag",
+            "slug": "canvas-tote-bag",
+            "category": 6,
+            "price": 16.99,
+            "description": "Eco-friendly canvas tote bag for everyday use.",
+            "image": "products/canvas_tote_bag.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+          "name": "Samsung 65-inch 4K UHD Smart TV",
+          "slug": "samsung-65-inch-4k-uhd-smart-tv",
+          "category": 7,
+          "price": 799.99,
+          "description": "A stunning 65-inch 4K UHD Smart TV with HDR support and built-in streaming apps.",
+          "image": "products/samsung_65_4k_tv.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "LG OLED55C1PUB 55-inch OLED TV",
+          "slug": "lg-oled55c1pub-55-inch-oled-tv",
+          "category": 7,
+          "price": 1199.99,
+          "description": "A 55-inch OLED TV with perfect blacks, Dolby Vision, and AI-powered picture quality.",
+          "image": "products/lg_oled55_tv.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Sony Bravia XR 77-inch OLED 4K TV",
+          "slug": "sony-bravia-xr-77-inch-oled-4k-tv",
+          "category": 7,
+          "price": 2499.99,
+          "description": "Sony’s flagship 77-inch OLED TV with cognitive intelligence and XR Motion Clarity.",
+          "image": "products/sony_bravia_xr_77.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "TCL 50-inch 4K Roku Smart TV",
+          "slug": "tcl-50-inch-4k-roku-smart-tv",
+          "category": 7,
+          "price": 349.99,
+          "description": "Affordable 50-inch 4K Smart TV with Roku built-in for easy streaming access.",
+          "image": "products/tcl_50_roku_tv.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Vizio 70-inch M-Series Quantum TV",
+          "slug": "vizio-70-inch-m-series-quantum-tv",
+          "category": 8,
+          "price": 899.99,
+          "description": "A 70-inch 4K UHD TV with Quantum Color technology and SmartCast OS.",
+          "image": "products/vizio_70_m_series_tv.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Hisense 55-inch ULED 4K TV",
+          "slug": "hisense-55-inch-uled-4k-tv",
+          "category": 8,
+          "price": 499.99,
+          "description": "A 55-inch ULED 4K TV with Dolby Vision HDR and 240 motion rate.",
+          "image": "products/hisense_55_uled_tv.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Philips 43-inch 4K UHD Android TV",
+          "slug": "philips-43-inch-4k-uhd-android-tv",
+          "category": 8,
+          "price": 379.99,
+          "description": "Philips 43-inch 4K Smart TV powered by Android with Google Assistant support.",
+          "image": "products/philips_43_android_tv.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Panasonic 75-inch LED 4K HDR TV",
+          "slug": "panasonic-75-inch-led-4k-hdr-tv",
+          "category": 8,
+          "price": 1299.99,
+          "description": "A 75-inch LED 4K HDR TV with advanced color processing and cinematic experience.",
+          "image": "products/panasonic_75_led_tv.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Sharp 32-inch HD Roku TV",
+          "slug": "sharp-32-inch-hd-roku-tv",
+          "category": 8,
+          "price": 179.99,
+          "description": "A budget-friendly 32-inch HD TV with Roku streaming and LED display.",
+          "image": "products/sharp_32_hd_roku_tv.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Toshiba 50-inch Fire TV Edition",
+          "slug": "toshiba-50-inch-fire-tv-edition",
+          "category": 8,
+          "price": 429.99,
+          "description": "A 50-inch 4K TV with built-in Fire TV and Alexa voice control.",
+          "image": "products/toshiba_50_fire_tv.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Smart Washing Machine",
+          "slug": "smart-washing-machine",
+          "category": 8,
+          "price": 599.99,
+          "description": "High-efficiency smart washing machine with WiFi connectivity.",
+          "image": "products/smart_washing_machine.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Cordless Vacuum Cleaner",
+          "slug": "cordless-vacuum-cleaner",
+          "category": 8,
+          "price": 199.99,
+          "description": "Lightweight and powerful cordless vacuum cleaner.",
+          "image": "products/cordless_vacuum_cleaner.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Smart Air Purifier",
+          "slug": "smart-air-purifier",
+          "category": 8,
+          "price": 149.99,
+          "description": "Removes allergens and pollutants with HEPA filter and smart sensors.",
+          "image": "products/smart_air_purifier.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Stainless Steel Microwave",
+          "slug": "stainless-steel-microwave",
+          "category": 8,
+          "price": 129.99,
+          "description": "Stylish stainless steel microwave with multiple cooking settings.",
+          "image": "products/stainless_steel_microwave.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Dishwasher with Auto Dry",
+          "slug": "dishwasher-auto-dry",
+          "category": 8,
+          "price": 499.99,
+          "description": "Energy-efficient dishwasher with auto dry feature.",
+          "image": "products/dishwasher_auto_dry.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Espresso Coffee Machine",
+          "slug": "espresso-coffee-machine",
+          "category": 8,
+          "price": 349.99,
+          "description": "Professional-grade espresso coffee machine with milk frother.",
+          "image": "products/espresso_coffee_machine.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Multi-Cooker Pressure Cooker",
+          "slug": "multi-cooker-pressure-cooker",
+          "category": 8,
+          "price": 119.99,
+          "description": "Versatile multi-cooker with pressure and slow cooking functions.",
+          "image": "products/multi_cooker_pressure_cooker.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Electric Kettle with Temperature Control",
+          "slug": "electric-kettle-temperature-control",
+          "category": 8,
+          "price": 49.99,
+          "description": "Fast-boiling electric kettle with adjustable temperature settings.",
+          "image": "products/electric_kettle_temperature_control.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Smart Toaster with Digital Display",
+          "slug": "smart-toaster-digital-display",
+          "category": 8,
+          "price": 89.99,
+          "description": "Smart toaster with customizable browning levels and digital display.",
+          "image": "products/smart_toaster_digital_display.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+          "name": "Portable Air Conditioner",
+          "slug": "portable-air-conditioner",
+          "category": 8,
+          "price": 299.99,
+          "description": "Powerful and compact portable air conditioner with remote control.",
+          "image": "products/portable_air_conditioner.jpg"
+        }
+      },
+      {
+        "model": "store.product",
+        "fields": {
+            "name": "Nike Air Max 270",
+            "slug": "nike-air-max-270",
+            "category": 9,
+            "price": 149.99,
+            "description": "Stylish and comfortable sneakers with Air Max cushioning.",
+            "image": "products/nike_air_max_270.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Adidas Ultraboost 22",
+            "slug": "adidas-ultraboost-22",
+            "category": 9,
+            "price": 179.99,
+            "description": "High-performance running shoes with responsive cushioning.",
+            "image": "products/adidas_ultraboost_22.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Puma RS-X",
+            "slug": "puma-rs-x",
+            "category": 9,
+            "price": 109.99,
+            "description": "Retro-inspired sneakers with a bold design.",
+            "image": "products/puma_rs_x.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Reebok Classic Leather",
+            "slug": "reebok-classic-leather",
+            "category": 9,
+            "price": 89.99,
+            "description": "Timeless leather sneakers for casual wear.",
+            "image": "products/reebok_classic_leather.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "New Balance 574",
+            "slug": "new-balance-574",
+            "category": 9,
+            "price": 99.99,
+            "description": "Classic running shoes with a comfortable fit.",
+            "image": "products/new_balance_574.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Vans Old Skool",
+            "slug": "vans-old-skool",
+            "category": 9,
+            "price": 69.99,
+            "description": "Iconic skate shoes with a durable canvas upper.",
+            "image": "products/vans_old_skool.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Converse Chuck Taylor All Star",
+            "slug": "converse-chuck-taylor-all-star",
+            "category": 9,
+            "price": 59.99,
+            "description": "Legendary high-top sneakers with a timeless design.",
+            "image": "products/converse_chuck_taylor.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Skechers Go Walk 6",
+            "slug": "skechers-go-walk-6",
+            "category": 9,
+            "price": 79.99,
+            "description": "Lightweight and comfortable walking shoes.",
+            "image": "products/skechers_go_walk_6.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Timberland 6-Inch Premium Boots",
+            "slug": "timberland-6-inch-premium-boots",
+            "category": 9,
+            "price": 198.99,
+            "description": "Durable leather boots with waterproof protection.",
+            "image": "products/timberland_6_inch_boots.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "fields": {
+            "name": "Dr. Martens 1460",
+            "slug": "dr-martens-1460",
+            "category": 9,
+            "price": 169.99,
+            "description": "Classic leather boots with signature air-cushioned sole.",
+            "image": "products/dr_martens_1460.jpg"
+        }
+    }
+  ]
+  

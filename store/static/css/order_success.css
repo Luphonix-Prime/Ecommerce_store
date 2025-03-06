@@ -1,27 +1,27 @@
-/* General Styling */
-body {
+/* Order Success Page Styles */
+.order-success-container {
     font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #25233B;
     margin: 0;
-    padding: 0;
+    padding: 50px 20px;
     color: #333;
     text-align: center;
 }
 
 /* Order Confirmation Message */
-h1 {
+.order-success-title {
     color: #10B981; /* Green for success */
-    margin-top: 50px;
     font-size: 28px;
+    margin-bottom: 20px;
 }
 
-p {
+.order-success-message {
     font-size: 18px;
-    margin: 20px 0;
+    margin-bottom: 30px;
 }
 
 /* Continue Shopping Button */
-a {
+.order-success-button {
     display: inline-block;
     background-color: #1F2937; /* Dark Blue */
     color: white;
@@ -32,6 +32,6 @@ a {
     transition: background 0.3s ease-in-out;
 }
 
-a:hover {
+.order-success-button:hover {
     background-color: #374151; /* Darker Blue */
 }

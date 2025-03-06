@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="store-container">
+        <!-- Primary Navbar -->
         <nav class="store-navbar">
             <div class="store-nav-left">
                 {% if user.is_authenticated %}
@@ -19,7 +20,7 @@
             </div>
 
             <div class="store-nav-center">
-                <a href="{% url 'product_list' %}" class="store-logo-link">
+                <a href="{% if request.resolver_match.url_name == 'product_list' %}{% url 'dashboard' %}{% else %}{% url 'product_list' %}{% endif %}" class="store-logo-link">
                     <img src="{% static 'images/logo.png' %}" alt="Store Logo" class="store-logo-img">
                 </a>
                 <form method="GET" action="{% url 'search_results' %}" class="store-search-form">
@@ -42,6 +43,19 @@
                     <a href="{% url 'login' %}" class="store-auth-btn">Login</a>
                 {% endif %}
             </div>
+        </nav>
+
+        <!-- Secondary Navbar -->
+        <nav class="store-secondary-navbar">
+            <ul>
+                {% for link in navbar_links %}
+                    <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                {% endfor %}
+                
+                {% for category in categories %}
+                    <li><a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
         </nav>
 
         <div class="store-content">

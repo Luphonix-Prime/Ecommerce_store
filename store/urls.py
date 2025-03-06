@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from .views import (
-    CustomLoginView, clear_report, delete_user,  product_list, product_detail, add_to_cart, 
+    CustomLoginView, category_detail, clear_report, delete_user,  product_list, product_detail, add_to_cart, 
     cart_view, checkout, order_success, remove_from_cart, reset_order_sequence, search_results, toggle_staff, update_cart,
     category_list, profile_view, add_product, change_email, report_page, clear_report, edit_product, edit_profile, dashboard, delete_product
 )
@@ -46,6 +46,8 @@ urlpatterns = [
     path('product/<int:product_id>/delete/', delete_product, name='delete_product'),
     
     path('categories/', category_list, name='categories'),
+    path('category/<slug:category_slug>/', category_detail, name='category_detail'),
+    path('product/<slug:product_slug>/', product_detail, name='product_detail'),
     path('add-category/', views.add_category, name='add_category'),  # These are not in the imported list
     path('edit-category/<int:category_id>/', views.edit_category, name='edit_category'),
     path('delete-category/<int:category_id>/', views.delete_category, name='delete_category'),

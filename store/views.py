@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product, Cart, Order, Category
+from .models import NavbarLink, Product, Cart, Order, Category
 from .forms import CartForm, ProductForm, EmailChangeForm, EditProfileForm, ChangePasswordForm, CategoryForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.admin.views.decorators import staff_member_required
@@ -25,13 +25,7 @@ class CustomLoginView(LoginView):
             return '/dashboard'  # Redirect admins and staff to the dashboard
         return '/products'  # Redirect normal users to the product list
 
-# def product_list(request):
-#     products = Product.objects.all()  # Capitalized 'Product'
-#     return render(request, 'store/product_list.html', {'products': products})
 
-# def product_detail(request, product_id):
-#     product = get_object_or_404(Product, id=product_id)  # Capitalized 'Product'
-#     return render(request, 'store/product_detail.html', {'product': product})
 
 def add_to_cart(request, product_id):
     if not request.user.is_authenticated:
@@ -57,19 +51,7 @@ def cart_view(request):
     total_price = sum(item.product.price * item.quantity for item in cart_items)
     return render(request, 'store/cart.html', {'cart_items': cart_items, 'total_price': total_price})
 
-# @login_required
-# def edit_product(request, product_id):
-#     product = get_object_or_404(Product, id=product_id)
 
-#     if request.method == "POST":
-#         form = ProductForm(request.POST, request.FILES, instance=product)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('product_detail', product_id=product.id)
-#     else:
-#         form = ProductForm(instance=product)
-
-#     return render(request, 'store/edit_product.html', {'form': form, 'product': product})
 def checkout(request):
     cart_items = Cart.objects.filter(user=request.user)
     
@@ -238,9 +220,7 @@ def product_list(request):
 
 
 
-def product_detail(request, product_id):
-    product = get_object_or_404(Product.objects.select_related('category'), id=product_id)
-    return render(request, 'store/product_detail.html', {'product': product})
+
 
 
 # List Categories
@@ -399,3 +379,17 @@ def reset_order_sequence(request):
         return redirect('report_page')  # Redirect back to report page
 
     return render(request, "store/reset_order_sequence.html")
+
+def navbar_data(request):
+    categories = Category.objects.all()
+    navbar_links = NavbarLink.objects.all()
+    return {'categories': categories, 'navbar_links': navbar_links}
+
+def category_detail(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
+    products = Product.objects.filter(category=category)
+    return render(request, 'store/category_detail.html', {'category': category, 'products': products})
+
+def product_detail(request, product_slug):
+    product = get_object_or_404(Product, slug=product_slug)
+    return render(request, 'store/product_detail.html', {'product': product})

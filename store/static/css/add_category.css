@@ -3,6 +3,7 @@
     max-width: 500px;  /* Limit form width */
     margin: 80px auto; /* Adjust top margin to avoid navbar collision */
     padding: 20px;
+    color: #333;
     background: #fff;  /* White background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */

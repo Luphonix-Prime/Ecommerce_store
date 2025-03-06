@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.utils.text import slugify
 from .models import NavbarLink, Product, Cart, Order, Category
 from .forms import CartForm, ProductForm, EmailChangeForm, EditProfileForm, ChangePasswordForm, CategoryForm
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -27,11 +28,11 @@ class CustomLoginView(LoginView):
 
 
 
-def add_to_cart(request, product_id):
+def add_to_cart(request, product_slug):
     if not request.user.is_authenticated:
         return redirect('login')  # Redirect anonymous users to login page
 
-    product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Product, slug=product_slug)
     quantity = int(request.POST.get('quantity', 1))  # Get quantity from form, default to 1
 
     cart_item, created = Cart.objects.get_or_create(user=request.user, product=product)
@@ -107,19 +108,20 @@ def signup(request):
 def profile_view(request):
     return render(request, 'store/profile.html', {'user': request.user})
 
-@staff_member_required
 @login_required
+@staff_member_required
 def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            product = form.save(commit=False)  # Don't save to DB yet
+            product.slug = slugify(product.name)  # Auto-generate slug
+            product.save()  # Save with the new slug
             return redirect('product_list')  # Redirect to product list after adding
     else:
         form = ProductForm()
 
     return render(request, 'store/add_product.html', {'form': form})
-
  
 @login_required
 def change_email(request):
@@ -134,8 +136,8 @@ def change_email(request):
     return render(request, 'store/change_email.html', {'form': form})
 
 
-def update_cart(request, cart_item_id):
-    cart_item = get_object_or_404(Cart, id=cart_item_id, user=request.user)
+def update_cart(request, product_slug):
+    cart_item = get_object_or_404(Cart, slug=product_slug, user=request.user)
 
     if request.method == "POST":
         new_quantity = request.POST.get("quantity")
@@ -147,8 +149,8 @@ def update_cart(request, cart_item_id):
 
     return redirect('cart')  # Redirect back to cart page
 
-def remove_from_cart(request, cart_item_id):
-    cart_item = get_object_or_404(Cart, id=cart_item_id, user=request.user)
+def remove_from_cart(request, product_slug):
+    cart_item = get_object_or_404(Cart, slug=product_slug, user=request.user)
     cart_item.delete()
     return redirect('cart')  # Redirect back to cart page
 
@@ -189,18 +191,23 @@ def edit_profile(request):
 
 
 
-def edit_product(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
+def edit_product(request, product_slug):
+    product = get_object_or_404(Product, slug=product_slug)
     categories = Category.objects.all()
 
     if request.method == "POST":
+        print("📨 POST request received!")  # Debugging
+        print("📝 Form Data:", request.POST)  # Debugging: Print form data
+        print("📂 Files Data:", request.FILES)  # Debugging: Print uploaded files
+
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
+            print("✅ Form is valid!")  # Debugging
             form.save()
             print("✅ Product updated successfully!")  # Debugging
-            return redirect('product_list')  # Redirect to product list
+            return redirect('product_list')  # Redirect after saving
         else:
-            print("❌ Form Errors:", form.errors)  # Debugging: Check errors
+            print("❌ Form Errors:", form.errors)  # Debugging
 
     else:
         form = ProductForm(instance=product)
@@ -208,10 +215,10 @@ def edit_product(request, product_id):
     return render(request, 'store/edit_product.html', {'form': form, 'product': product, 'categories': categories})
 
 @login_required
-def delete_product(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
+def delete_product(request, product_slug):
+    product = get_object_or_404(Product, slug=product_slug)
     product.delete()
-    return redirect('product_list')  # Redirect to product list after deleting
+    return redirect('product_list') 
 
 def product_list(request):
     products = Product.objects.select_related('category').all()

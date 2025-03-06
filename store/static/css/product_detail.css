@@ -3,7 +3,7 @@
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background: #fff;
+    background: #1E1D2B;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -21,27 +21,27 @@
 .product-detail-container h1 {
     font-size: 26px;
     margin-bottom: 10px;
-    color: #333;
+    color: #ffffff;
 }
 
 /* Category */
 .product-detail-container .category {
     font-size: 14px;
-    color: #777;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
 /* Description & Price */
 .product-detail-container p {
     font-size: 16px;
-    color: #444;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
 .product-detail-container .price {
     font-size: 20px;
     font-weight: bold;
-    color: #27ae60;
+    color: #4ff12f;
     margin-bottom: 15px;
 }
 

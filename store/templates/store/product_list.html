@@ -38,8 +38,8 @@
                         <p>📂 Category: {{ product.category.name }}</p>
                     </td>
                     <td class="product-cart-cell">
-                        <a href="{% url 'product_detail' product.id %}" class="action-btn view-product-btn">🔍 View</a>
-                        <a href="{% url 'add_to_cart' product.id %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+                        <a href="{% url 'product_detail' product.slug %}" class="action-btn view-product-btn">🔍 View</a>
+                        <a href="{% url 'add_to_cart' product.slug %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
                     </td>
                 </tr>
                 {% empty %}
@@ -61,8 +61,8 @@
                     <img src="{{ product.image.url }}" alt="{{ product.name }}">
                     <h4>{{ product.name }}</h4>
                     <p>💰 ₹{{ product.price }}</p>
-                    <a href="{% url 'product_detail' product.id %}" class="action-btn view-product-btn">🔍 View</a>
-                    <a href="{% url 'add_to_cart' product.id %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+                    <a href="{% url 'product_detail' product.slug %}" class="action-btn view-product-btn">🔍 View</a>
+                    <a href="{% url 'add_to_cart' product.slug %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
                 </div>
             {% empty %}
             <p>No products in this category.</p>
@@ -89,8 +89,8 @@
                         <p class="price">💰 ₹{{ product.price }}</p>
                     </td>
                     <td class="product-cart-cell">
-                        <a href="{% url 'product_detail' product.id %}" class="action-btn view-product-btn">🔍 View</a>
-                        <a href="{% url 'add_to_cart' product.id %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+                        <a href="{% url 'product_detail' product.slug %}" class="action-btn view-product-btn">🔍 View</a>
+                        <a href="{% url 'add_to_cart' product.slug %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
                     </td>
                 </tr>
                 {% empty %}
@@ -119,8 +119,8 @@
                 <div class="flip-card-back">
                     <p>{{ product.description }}</p>
                     <p>📂 Category: {{ product.category.name }}</p>
-                    <a href="{% url 'product_detail' product.id %}" class="action-btn view-product-btn">🔍 View</a>
-                    <a href="{% url 'add_to_cart' product.id %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+                    <a href="{% url 'product_detail' product.slug %}" class="action-btn view-product-btn">🔍 View</a>
+                    <a href="{% url 'add_to_cart' product.slug %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
                 </div>
             </div>
         </div>

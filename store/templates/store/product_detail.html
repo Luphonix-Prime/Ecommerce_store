@@ -10,15 +10,15 @@
     <!-- Product Information -->
     <h1>{{ product.name }}</h1>
     <p class="category">📂 Category: {{ product.category.name }}</p>
-    <p>{{ product.description }}</p>
+    <p>Discription: {{ product.description }}</p>
     <p class="price">💰 Price: ₹{{ product.price }}</p>
 
     <!-- Edit & Delete Buttons for Admin/Staff -->
     {% if user.is_authenticated %}
         {% if user.is_staff %}
             <div class="product-detail-buttons">
-                <a href="{% url 'edit_product' product.id %}" class="edit-button">✏️ Edit</a>
-                <a href="{% url 'delete_product' product.id %}" class="delete-button">🗑️ Delete</a>
+                <a href="{% url 'edit_product' product.slug %}" class="edit-button">✏️ Edit</a>
+                <a href="{% url 'delete_product' product.slug %}" class="delete-button">🗑️ Delete</a>
             </div>
         {% else %}
             <!-- Add to Cart Button for Non-Admin Users -->
@@ -36,7 +36,7 @@
     {% else %}
         <!-- Add to Cart Button for Non-Authenticated Users -->
         <div class="product-detail-buttons">
-            <a href="{% url 'add_to_cart' product.id %}" class="add-to-cart-button">🛒 Add to Cart</a>
+            <a href="{% url 'add_to_cart' product.slug %}" class="add-to-cart-button">🛒 Add to Cart</a>
         </div>
     {% endif %}
 </div>

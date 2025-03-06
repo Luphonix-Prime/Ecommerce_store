@@ -24,21 +24,11 @@
                 <h2>Edit Product</h2>
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    
-                    <label>Product Name</label>
-                    {{ form.name }}
-
-                    <label>Image</label>
-                    {{ form.image }}
-
-                    <label>Category</label>
-                    {{ form.category }}
-
-                    <label>Price (₹)</label>
-                    {{ form.price }}
-
+                    {{ form.as_p }}
+                
                     <button type="submit" class="edit-product-submit-btn">Save Changes</button>
                 </form>
+                
                 <a href="{% url 'product_list' %}" class="edit-product-back-btn">Back to Products</a>
             </div>
         </div>

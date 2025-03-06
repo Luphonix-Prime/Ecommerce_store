@@ -15,15 +15,14 @@ urlpatterns = [
      path('dashboard/', dashboard, name='dashboard'),
      path('dashboard/clear-report/', clear_report, name='clear_report'),
     path('products/', product_list, name='product_list'),  # 👈 Using imported product_list
-    path('product/<int:product_id>/', product_detail, name='product_detail'),
-    path('add-to-cart/<int:product_id>/', add_to_cart, name='add_to_cart'),
+    # path('product/<int:product_id>/', product_detail, name='product_detail'),
+    path('add-to-cart/<slug:product_slug>/', add_to_cart, name='add_to_cart'),
     path('cart/', cart_view, name='cart'),
     path('checkout/', checkout, name='checkout'),
     path('order-success/', order_success, name='order_success'),
     path('profile/', profile_view, name='profile'),
     path('profile/edit/', edit_profile, name='edit_profile'),
     path('add-product/', add_product, name='add_product'),
-    path('product/edit/<int:product_id>/', views.edit_product, name='edit_product'),
 
     
     path('change-email/', change_email, name='change_email'),
@@ -42,15 +41,15 @@ urlpatterns = [
     path('password-reset-confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name='store/password_reset_confirm.html'), name='password_reset_confirm'),
     path('password-reset-complete/', PasswordResetCompleteView.as_view(template_name='store/password_reset_complete.html'), name='password_reset_complete'),
     
-    path('product/edit/<int:product_id>/', edit_product, name='edit_product'),
-    path('product/<int:product_id>/delete/', delete_product, name='delete_product'),
+    path('product/edit/<slug:product_slug>/', edit_product, name='edit_product'),
+    path('product/delete/<slug:product_slug>/', delete_product, name='delete_product'),
     
     path('categories/', category_list, name='categories'),
     path('category/<slug:category_slug>/', category_detail, name='category_detail'),
-    path('product/<slug:product_slug>/', product_detail, name='product_detail'),
+    path('product/<slug:product_slug>/', views.product_detail, name='product_detail'),
     path('add-category/', views.add_category, name='add_category'),  # These are not in the imported list
-    path('edit-category/<int:category_id>/', views.edit_category, name='edit_category'),
-    path('delete-category/<int:category_id>/', views.delete_category, name='delete_category'),
+    path('edit-category/<slug:category_slug>/', views.edit_category, name='edit_category'),
+    path('delete-category/<slug:category_slug>/', views.delete_category, name='delete_category'),
     
     path('remove-from-cart/<int:cart_item_id>/', remove_from_cart, name='remove_from_cart'),
     path('update-cart/<int:cart_item_id>/', update_cart, name='update_cart'),

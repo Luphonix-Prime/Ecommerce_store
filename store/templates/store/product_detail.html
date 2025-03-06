@@ -22,7 +22,7 @@
             </div>
         {% else %}
             <!-- Add to Cart Button for Non-Admin Users -->
-            <form method="POST" action="{% url 'add_to_cart' product.id %}">
+            <form method="POST" action="{% url 'add_to_cart' product.slug %}">
                 {% csrf_token %}
                 
                 <!-- Quantity Selection -->
@@ -36,7 +36,8 @@
     {% else %}
         <!-- Add to Cart Button for Non-Authenticated Users -->
         <div class="product-detail-buttons">
-            <a href="{% url 'add_to_cart' product.slug %}" class="add-to-cart-button">🛒 Add to Cart</a>
+            <a href="{% url 'add_to_cart' product.slug %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+
         </div>
     {% endif %}
 </div>

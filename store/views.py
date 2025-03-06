@@ -32,23 +32,30 @@ class CustomLoginView(LoginView):
 
 
 
+
 def add_to_cart(request, product_slug):
     if not request.user.is_authenticated:
-        return redirect('login')  # Redirect anonymous users to login page
+        messages.warning(request, "You need to log in to add items to your cart.")
+        return redirect('login')  
 
     product = get_object_or_404(Product, slug=product_slug)
-    quantity = int(request.POST.get('quantity', 1))  # Get quantity from form, default to 1
+    quantity = request.POST.get('quantity', 1)
 
-    cart_item, created = Cart.objects.get_or_create(user=request.user, product=product)
+    try:
+        quantity = max(1, int(quantity))  # Ensure quantity is at least 1
+    except ValueError:
+        messages.error(request, "Invalid quantity.")
+        return redirect('cart')
+
+    cart_item, created = Cart.objects.get_or_create(user=request.user, product=product, defaults={'quantity': quantity})
 
     if not created:
-        cart_item.quantity += quantity  # Increase quantity if already exists
-    else:
-        cart_item.quantity = quantity
+        cart_item.quantity += quantity  # Increase quantity if already in cart
+        cart_item.save(update_fields=['quantity'])
 
-    cart_item.save()
-    messages.success(request, f"{quantity}x {product.name} added to cart!")  # Show success message
+    messages.success(request, f"{quantity}x {product.name} added to cart!")  
     return redirect('cart')
+
 
 @login_required
 def cart_view(request):

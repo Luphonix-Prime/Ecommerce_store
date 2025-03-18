@@ -87,9 +87,27 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # Keep SQLite for authentication
+    },
+    'supabase': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',  # Default Supabase database name
+        'USER': 'postgres',  # Get from Supabase
+        'PASSWORD': 'loop@phoenix_02025',  # Get from Supabase
+        'HOST': 'db.your-supabase-url.supabase.co',  # Supabase cloud database host
+        'PORT': '5432',  # Default PostgreSQL port
+    },
+    'mongodb': {
+        'ENGINE': 'djongo',
+        'NAME': 'your_mongodb_db_name',
+        'CLIENT': {
+            'host': 'your_mongodb_atlas_connection_string',
+        }
     }
 }
+
+DATABASE_ROUTERS = ['db_router.MultiDBRouter']
+
 
 
 # Password validation

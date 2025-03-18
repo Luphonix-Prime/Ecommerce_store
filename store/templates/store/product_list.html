@@ -18,6 +18,27 @@
             <option value="4">🃏 Flip Card Layout</option>
         </select>
     </div>
+    <!-- JavaScript for Layout Switching -->
+<script>
+    function switchLayout(layoutNumber) {
+        document.querySelectorAll('.layout').forEach(layout => layout.classList.add('hidden'));
+        document.getElementById('layout' + layoutNumber).classList.remove('hidden');
+    }
+
+    function filterByCategory(categoryId) {
+        let rows = document.querySelectorAll('.product-table tbody tr');
+
+        rows.forEach(row => {
+            let productCategory = row.getAttribute('data-category');
+
+            if (categoryId === 'all' || productCategory === categoryId) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+</script>
 
     <!-- First Layout: Default Table View -->
     <div id="layout1" class="layout layout-with-sidebar">
@@ -77,23 +98,6 @@
             </table>
         </div>
     </div>
-    
-    <!-- JavaScript for Category Filtering -->
-    <script>
-        function filterByCategory(categoryId) {
-            let rows = document.querySelectorAll('.product-table tbody tr');
-    
-            rows.forEach(row => {
-                let productCategory = row.getAttribute('data-category');
-    
-                if (categoryId === 'all' || productCategory === categoryId) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-    </script>
     
     
     <!-- Second Layout: Horizontal Scroll -->
@@ -176,12 +180,6 @@
     </div>
 </div>
 
-<!-- JavaScript for Layout Switching -->
-<script>
-    function switchLayout(layoutNumber) {
-        document.querySelectorAll('.layout').forEach(layout => layout.classList.add('hidden'));
-        document.getElementById('layout' + layoutNumber).classList.remove('hidden');
-    }
-</script>
+
 
 {% endblock %}

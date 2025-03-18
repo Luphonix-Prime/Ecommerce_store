@@ -18,25 +18,59 @@
             <option value="4">🃏 Flip Card Layout</option>
         </select>
     </div>
+    <!-- JavaScript for Layout Switching -->
+<script>
+    function switchLayout(layoutNumber) {
+        document.querySelectorAll('.layout').forEach(layout => layout.classList.add('hidden'));
+        document.getElementById('layout' + layoutNumber).classList.remove('hidden');
+    }
+
+    function filterByCategory(categoryId) {
+        let rows = document.querySelectorAll('.product-table tbody tr');
+
+        rows.forEach(row => {
+            let productCategory = row.getAttribute('data-category');
+
+            if (categoryId === 'all' || productCategory === categoryId) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+</script>
 
     <!-- First Layout: Default Table View -->
     <div id="layout1" class="layout layout-with-sidebar">
+        <!-- Sidebar for Categories -->
         <div class="sidebar">
             <h3>Categories</h3>
             <ul>
+                <li>
+                    <a href="#" onclick="filterByCategory('all')">📌 All Categories</a>
+                </li>
                 {% for category in categories %}
-                <li><a href="#" onclick="filterByCategory('{{ category.id }}')">{{ category.name }}</a></li>
+                <li>
+                    <a href="#" onclick="filterByCategory('{{ category.id }}')">
+                        {{ category.name }}
+                    </a>
+                </li>
                 {% endfor %}
             </ul>
         </div>
+    
+        <!-- Product List -->
         <div class="product-list">
             <table class="product-table">
                 <tbody>
                     {% for product in products %}
-                    <tr>
+                    <tr data-category="{{ product.category.id }}">
+                        <!-- Product Image -->
                         <td class="product-image-cell">
                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
                         </td>
+    
+                        <!-- Product Info -->
                         <td class="product-info-cell">
                             <h2>{{ product.name }}</h2>
                             <p>{{ product.description }}</p>
@@ -44,13 +78,19 @@
                             <p class="price">💰 ₹{{ product.price }}</p>
                             <p>📂 Category: {{ product.category.name }}</p>
                         </td>
+    
+                        <!-- Product Actions -->
                         <td class="product-cart-cell">
-                            <a href="{% url 'product_detail' product.slug %}" class="action-btn view-product-btn">🔍 View</a>
-                            <a href="{% url 'add_to_cart' product.slug %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+                            <a href="{% url 'product_detail' product.slug %}" class="action-btn view-product-btn">
+                                🔍 View
+                            </a>
+                            <a href="{% url 'add_to_cart' product.slug %}" class="action-btn add-to-cart-btn">
+                                🛒 Add to Cart
+                            </a>
                         </td>
                     </tr>
                     {% empty %}
-                    <tr>
+                    <tr class="no-products">
                         <td colspan="3">No products available.</td>
                     </tr>
                     {% endfor %}
@@ -58,7 +98,8 @@
             </table>
         </div>
     </div>
-
+    
+    
     <!-- Second Layout: Horizontal Scroll -->
     <div id="layout2" class="layout hidden">
         {% for category in categories %}
@@ -139,12 +180,6 @@
     </div>
 </div>
 
-<!-- JavaScript for Layout Switching -->
-<script>
-    function switchLayout(layoutNumber) {
-        document.querySelectorAll('.layout').forEach(layout => layout.classList.add('hidden'));
-        document.getElementById('layout' + layoutNumber).classList.remove('hidden');
-    }
-</script>
+
 
 {% endblock %}

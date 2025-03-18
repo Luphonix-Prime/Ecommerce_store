@@ -1,5 +1,6 @@
 .hidden { display: none; }
 
+
 .layout-dropdown {
     margin-bottom: 15px;
 }
@@ -273,4 +274,56 @@
 option {
     background-color: transparent;
     color: #5b5b5b;
+}
+
+/* Sidebar and Product List Layout */
+.layout-with-sidebar {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background: #1E293B;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h3 {
+    font-size: 20px;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: white;
+    background: #333;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background: #007bff;
+}
+
+/* Product List Styling */
+.product-list {
+    flex-grow: 1;
 }

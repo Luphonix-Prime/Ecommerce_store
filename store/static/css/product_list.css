@@ -1,36 +1,11 @@
-.hidden { display: none; }
 
-
-.layout-dropdown {
-    margin-bottom: 15px;
-}
-
-.action-dropdown {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: springgreen;
-}
 
 .action-dropdown:focus {
     outline: none;
     border-color: #007bff;
 }
 
-/* Product Table */
-.product-table {
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-    border-collapse: collapse;
-}
 
-/* Table Rows */
-.product-table tr {
-    border-bottom: 1px solid #ddd;
-}
 
 /* Column 1: Product Image */
 .product-image-cell {
@@ -39,20 +14,6 @@
     text-align: left;
 }
 
-.product-image-cell img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    object-fit: contain;
-}
-
-/* Column 2: Product Info */
-.product-info-cell {
-    width: 50%;
-    padding: 10px;
-    text-align: center;
-    vertical-align: middle;
-}
 
 /* Price */
 .price {
@@ -62,12 +23,7 @@
 }
 
 /* Column 3: Buttons */
-.product-cart-cell {
-    width: 30%;
-    padding: 10px;
-    text-align: right;
-    vertical-align: middle;
-}
+
 
 /* General Button Styling */
 .action-btn {
@@ -130,23 +86,23 @@
 }
 
 /* Horizontal Scroll Layout */
-.horizontal-scroll {
+ .horizontal-scroll {
     display: flex;
     overflow-x: auto;
-    gap: 15px;  /* Space between products */
+    gap: 15px;  
     padding: 10px;
     white-space: nowrap;
-    scrollbar-width: thin; /* Hide scrollbar (Firefox) */
-    -ms-overflow-style: none; /* Hide scrollbar (IE & Edge) */
-}
+    scrollbar-width: thin; 
+    -ms-overflow-style: none; 
+} 
 
 .horizontal-scroll::-webkit-scrollbar {
     display: none; /* Hide scrollbar (Chrome, Safari) */
 }
 
 /* Product Cards in Horizontal Scroll */
-.product-card {
-    flex: 0 0 250px; /* Fixed width for each product */
+ .product-card {
+    flex: 0 0 250px; 
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 10px;
@@ -154,7 +110,7 @@
     background:right;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-}
+} 
 
 .product-card:hover {
     transform: scale(1.05);
@@ -162,11 +118,11 @@
 
 }
 
-.product-card img {
+ .product-card img {
     width: 100%;
     object-fit: cover;
     border-radius: 8px;
-}
+} 
 
 /* Product Table Hover Effect */
 .product-table tr:hover {
@@ -196,7 +152,7 @@
     padding: 20px;
 }
 
-.flip-card {
+ .flip-card {
     background: transparent;
     width: 250px;
     height: 320px;
@@ -210,11 +166,11 @@
     text-align: center;
     transform-style: preserve-3d;
     transition: transform 0.6s;
-}
+} 
 
-.flip-card:hover .flip-card-inner {
+ .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
-}
+} 
 
 /* Front & Back Side */
 .flip-card-front,
@@ -327,3 +283,24 @@ option {
 .product-list {
     flex-grow: 1;
 }
+
+
+.hidden { display: none; }
+.layout-dropdown { margin-bottom: 15px; }
+.action-dropdown { padding: 8px; background-color: springgreen; cursor: pointer; }
+
+/* Product Table */
+.product-table { width: 100%; max-width: 900px; margin: auto; border-collapse: collapse; }
+.product-table tr { border-bottom: 1px solid #ddd; }
+.product-image-cell img { width: 100%; border-radius: 5px; }
+.product-info-cell { text-align: center; }
+.product-cart-cell { text-align: right; }
+
+/* Horizontal Scroll */
+/* .product-card { flex: 0 0 250px; border: 1px solid #ddd; text-align: center; } */
+/* .product-card img { width: 100%; border-radius: 8px; } */
+
+/* Flip Cards */
+.flip-card { width: 250px; height: 320px; perspective: 1000px; }
+.flip-card-inner { transform-style: preserve-3d; transition: transform 0.6s; }
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }

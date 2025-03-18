@@ -1,16 +1,5 @@
-/* Global Dark Theme Styles */
-body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: 'Poppins', sans-serif;
-}
+.hidden { display: none; }
 
-/* Hide Elements */
-.hidden { 
-    display: none; 
-}
-
-/* Dropdown Styling */
 .layout-dropdown {
     margin-bottom: 15px;
 }
@@ -18,12 +7,10 @@ body {
 .action-dropdown {
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #555;
+    border: 1px solid #ccc;
     font-size: 16px;
     cursor: pointer;
-    background-color: #1e1e1e;
-    color: #ffffff;
-    transition: all 0.3s ease;
+    background-color: springgreen;
 }
 
 .action-dropdown:focus {
@@ -37,19 +24,11 @@ body {
     max-width: 900px;
     margin: auto;
     border-collapse: collapse;
-    background: #1b1b1b;
-    border-radius: 10px;
-    overflow: hidden;
 }
 
 /* Table Rows */
 .product-table tr {
-    border-bottom: 1px solid #333;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.product-table tr:hover {
-    background-color: #222;
+    border-bottom: 1px solid #ddd;
 }
 
 /* Column 1: Product Image */
@@ -64,11 +43,6 @@ body {
     height: auto;
     border-radius: 5px;
     object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.product-image-cell img:hover {
-    transform: scale(1.1);
 }
 
 /* Column 2: Product Info */
@@ -83,7 +57,7 @@ body {
 .price {
     font-size: 20px;
     font-weight: bold;
-    color: #FFD700;
+    color: #B12704;
 }
 
 /* Column 3: Buttons */
@@ -113,80 +87,106 @@ body {
 
 /* View Product Button - Blue */
 .view-product-btn {
-    background: linear-gradient(45deg, #0d6efd, #0056b3);
+    background: linear-gradient(45deg, #007BFF, #0056b3);
     color: white;
-    box-shadow: 0 4px 6px rgba(13, 110, 253, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
 }
 
 .view-product-btn:hover {
     background: linear-gradient(45deg, #0056b3, #004080);
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(13, 110, 253, 0.5);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.5);
 }
 
 /* Add to Cart Button - Green */
 .add-to-cart-btn {
-    background: linear-gradient(45deg, #198754, #146c43);
+    background: linear-gradient(45deg, #28a745, #218838);
     color: white;
-    box-shadow: 0 4px 6px rgba(25, 135, 84, 0.3);
+    box-shadow: 0 4px 6px rgba(40, 167, 69, 0.3);
 }
 
 .add-to-cart-btn:hover {
-    background: linear-gradient(45deg, #146c43, #125837);
+    background: linear-gradient(45deg, #218838, #1e7e34);
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(25, 135, 84, 0.5);
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.5);
 }
 
 /* Add Product Button - Orange */
 .add-product-btn {
     display: inline-block;
-    background: linear-gradient(45deg, #fd7e14, #dc6307);
+    background: linear-gradient(45deg, #ff8c00, #e07b00);
     color: white;
-    box-shadow: 0 4px 6px rgba(253, 126, 20, 0.3);
+    box-shadow: 0 4px 6px rgba(255, 140, 0, 0.3);
     width: fit-content;
     text-align: center;
     margin-bottom: 20px;
 }
 
 .add-product-btn:hover {
-    background: linear-gradient(45deg, #dc6307, #c25605);
+    background: linear-gradient(45deg, #e07b00, #c56a00);
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(253, 126, 20, 0.5);
+    box-shadow: 0 6px 12px rgba(255, 140, 0, 0.5);
 }
 
 /* Horizontal Scroll Layout */
 .horizontal-scroll {
     display: flex;
     overflow-x: auto;
-    gap: 15px;
+    gap: 15px;  /* Space between products */
     padding: 10px;
     white-space: nowrap;
-    scrollbar-width: thin;
-    -ms-overflow-style: none;
+    scrollbar-width: thin; /* Hide scrollbar (Firefox) */
+    -ms-overflow-style: none; /* Hide scrollbar (IE & Edge) */
 }
 
 .horizontal-scroll::-webkit-scrollbar {
-    display: none;
+    display: none; /* Hide scrollbar (Chrome, Safari) */
 }
 
-/* Product Cards */
+/* Product Cards in Horizontal Scroll */
 .product-card {
-    flex: 0 0 250px;
-    border: 1px solid #444;
+    flex: 0 0 250px; /* Fixed width for each product */
+    border: 1px solid #ddd;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
-    background: #1e1e1e;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    background:right;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
 .product-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    
+
 }
 
-/* Flip Card */
+.product-card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Product Table Hover Effect */
+.product-table tr:hover {
+    background-color: #7a7985; /* Light gray background */
+    transform: scale(1.02);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Product Cards in Horizontal Scroll - Updated Hover */
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+/* Product Table Image Hover */
+.product-image-cell img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Flip Card Layout */
 .flip-card-container {
     display: flex;
     flex-wrap: wrap;
@@ -215,6 +215,7 @@ body {
     transform: rotateY(180deg);
 }
 
+/* Front & Back Side */
 .flip-card-front,
 .flip-card-back {
     position: absolute;
@@ -222,7 +223,7 @@ body {
     height: 100%;
     backface-visibility: hidden;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -230,8 +231,9 @@ body {
     padding: 15px;
 }
 
+/* Front Side (Image, Name, Price) */
 .flip-card-front {
-    background: #1E1E1E;
+    background: #1E293B;
 }
 
 .flip-card-front img {
@@ -243,15 +245,15 @@ body {
 .flip-card-front h3 {
     margin: 10px 0;
     font-size: 18px;
-    color: white;
 }
 
 .flip-card-front .price {
     font-size: 20px;
     font-weight: bold;
-    color: #FFD700;
+    color: #f2ff00d8;
 }
 
+/* Back Side (Description, Category, Buttons) */
 .flip-card-back {
     background: linear-gradient(135deg, #007BFF, #0056b3);
     color: white;
@@ -267,4 +269,60 @@ body {
     margin-top: 10px;
     padding: 8px 14px;
     font-size: 14px;
+}
+option {
+    background-color: transparent;
+    color: #5b5b5b;
+}
+
+/* Sidebar and Product List Layout */
+.layout-with-sidebar {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h3 {
+    font-size: 20px;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: white;
+    background: #333;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background: #007bff;
+}
+
+/* Product List Styling */
+.product-list {
+    flex-grow: 1;
 }

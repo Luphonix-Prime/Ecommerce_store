@@ -25,6 +25,9 @@
         <div class="sidebar">
             <h3>Categories</h3>
             <ul>
+                <li>
+                    <a href="#" onclick="filterByCategory('all')">📌 All Categories</a>
+                </li>
                 {% for category in categories %}
                 <li>
                     <a href="#" onclick="filterByCategory('{{ category.id }}')">
@@ -40,7 +43,7 @@
             <table class="product-table">
                 <tbody>
                     {% for product in products %}
-                    <tr>
+                    <tr data-category="{{ product.category.id }}">
                         <!-- Product Image -->
                         <td class="product-image-cell">
                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -66,14 +69,32 @@
                         </td>
                     </tr>
                     {% empty %}
-                    <tr>
-                        <td colspan="3" class="no-products">No products available.</td>
+                    <tr class="no-products">
+                        <td colspan="3">No products available.</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
+    
+    <!-- JavaScript for Category Filtering -->
+    <script>
+        function filterByCategory(categoryId) {
+            let rows = document.querySelectorAll('.product-table tbody tr');
+    
+            rows.forEach(row => {
+                let productCategory = row.getAttribute('data-category');
+    
+                if (categoryId === 'all' || productCategory === categoryId) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    
     
     <!-- Second Layout: Horizontal Scroll -->
     <div id="layout2" class="layout hidden">

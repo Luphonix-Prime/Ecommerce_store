@@ -20,33 +20,43 @@
     </div>
 
     <!-- First Layout: Default Table View -->
-    <div id="layout1" class="layout">
-        <table class="product-table">
-            <tbody>
-                {% for product in products %}
-                <tr>
-                    <td class="product-image-cell">
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                    </td>
-                    <td class="product-info-cell">
-                        <h2>{{ product.name }}</h2>
-                        <p>{{ product.description }}</p>
-                        <p class="ratings">⭐ 4.5/5</p>
-                        <p class="price">💰 ₹{{ product.price }}</p>
-                        <p>📂 Category: {{ product.category.name }}</p>
-                    </td>
-                    <td class="product-cart-cell">
-                        <a href="{% url 'product_detail' product.slug %}" class="action-btn view-product-btn">🔍 View</a>
-                        <a href="{% url 'add_to_cart' product.slug %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
-                    </td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="3">No products available.</td>
-                </tr>
+    <div id="layout1" class="layout layout-with-sidebar">
+        <div class="sidebar">
+            <h3>Categories</h3>
+            <ul>
+                {% for category in categories %}
+                <li><a href="#" onclick="filterByCategory('{{ category.id }}')">{{ category.name }}</a></li>
                 {% endfor %}
-            </tbody>
-        </table>
+            </ul>
+        </div>
+        <div class="product-list">
+            <table class="product-table">
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td class="product-image-cell">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </td>
+                        <td class="product-info-cell">
+                            <h2>{{ product.name }}</h2>
+                            <p>{{ product.description }}</p>
+                            <p class="ratings">⭐ 4.5/5</p>
+                            <p class="price">💰 ₹{{ product.price }}</p>
+                            <p>📂 Category: {{ product.category.name }}</p>
+                        </td>
+                        <td class="product-cart-cell">
+                            <a href="{% url 'product_detail' product.slug %}" class="action-btn view-product-btn">🔍 View</a>
+                            <a href="{% url 'add_to_cart' product.slug %}" class="action-btn add-to-cart-btn">🛒 Add to Cart</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">No products available.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Second Layout: Horizontal Scroll -->

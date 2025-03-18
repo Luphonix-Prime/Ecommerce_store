@@ -106,7 +106,7 @@ DATABASES = {
     }
 }
 
-DATABASE_ROUTERS = ['db_router.MultiDBRouter']
+# DATABASE_ROUTERS = ['db_router.MultiDBRouter']
 
 
 

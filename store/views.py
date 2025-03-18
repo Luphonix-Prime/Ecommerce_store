@@ -435,3 +435,5 @@ def get_fake_products(request):
 
 def fake_products_page(request):
     return render(request, "store/fake_products.html")
+
+    

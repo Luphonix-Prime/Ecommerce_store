@@ -83,30 +83,24 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
-    'default': {
+    'default': {  # SQLite for authentication
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',  # Keep SQLite for authentication
-    },
-    'supabase': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',  # Default Supabase database name
-        'USER': 'postgres',  # Get from Supabase
-        'PASSWORD': 'loop@phoenix_02025',  # Get from Supabase
-        'HOST': 'db.your-supabase-url.supabase.co',  # Supabase cloud database host
-        'PORT': '5432',  # Default PostgreSQL port
+        'NAME': BASE_DIR / 'db.sqlite3',
     },
     'mongodb': {
         'ENGINE': 'djongo',
-        'NAME': 'your_mongodb_db_name',
+        'NAME': 'ecommerceDB',  # Replace with your actual DB name
         'CLIENT': {
-            'host': 'your_mongodb_atlas_connection_string',
+            'host': 'mongodb+srv://Luphonix:LoopPheonix%402025@ecommerce.dedvn.mongodb.net/?retryWrites=true&w=majority&appName=Ecommerce',
+            'username': 'Luphonix',
+            'password': 'LoopPheonix@2025',  # Leave this as is (Django won't use it directly)
+            'authMechanism': 'SCRAM-SHA-1',  # Authentication method for MongoDB Atlas
         }
     }
 }
 
-# DATABASE_ROUTERS = ['db_router.MultiDBRouter']
+DATABASE_ROUTERS = ['store.db_router.MultiDBRouter']
 
 
 

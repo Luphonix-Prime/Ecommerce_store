@@ -13,17 +13,22 @@ class Category(models.Model):
             base_slug = slugify(self.name)
             slug = base_slug
             counter = 1
-            while Category.objects.filter(slug=slug).exists():
+            while Category.objects.using('mongodb').filter(slug=slug).exists():
                 slug = f"{base_slug}-{counter}"
                 counter += 1
             self.slug = slug
-        super().save(*args, **kwargs)
+        super().save(using='mongodb', *args, **kwargs)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('category_detail', kwargs={'category_slug': self.slug})  # Fixed
+        return reverse('category_detail', kwargs={'category_slug': self.slug})
+
+    class Meta:
+        app_label = 'store'
+        db_table = 'category'
+
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
@@ -38,17 +43,22 @@ class Product(models.Model):
             base_slug = slugify(self.name)
             slug = base_slug
             counter = 1
-            while Product.objects.filter(slug=slug).exists():
+            while Product.objects.using('mongodb').filter(slug=slug).exists():
                 slug = f"{base_slug}-{counter}"
                 counter += 1
             self.slug = slug
-        super().save(*args, **kwargs)
+        super().save(using='mongodb', *args, **kwargs)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('product_detail', kwargs={'product_slug': self.slug})  # Added
+        return reverse('product_detail', kwargs={'product_slug': self.slug})
+
+    class Meta:
+        app_label = 'store'
+        db_table = 'product'
+
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -58,6 +68,11 @@ class Cart(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.product.name} - {self.quantity}"
 
+    class Meta:
+        app_label = 'store'
+        db_table = 'cart'
+
+
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
@@ -66,6 +81,14 @@ class Order(models.Model):
     def __str__(self):
         return f"Order {self.id} by {self.user.username}"
 
+    class Meta:
+        app_label = 'store'
+        db_table = 'order'
+
+    def save(self, *args, **kwargs):
+        super().save(using='mongodb', *args, **kwargs)
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='profile_pics/', default='default.jpg')
@@ -73,9 +96,18 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+    class Meta:
+        app_label = 'store'
+        db_table = 'profile'
+
+
 class NavbarLink(models.Model):
     name = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        app_label = 'store'
+        db_table = 'navbar_link'  # Ensure this matches in DB
